@@ -1,0 +1,97 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Simple Image Widget\n"
+"POT-Creation-Date: 2013-01-11 14:34-0800\n"
+"PO-Revision-Date: 2013-01-11 14:38-0800\n"
+"Last-Translator: Brady Vercher <brady@blazersix.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-KeywordsList: _e;__;esc_attr_e;esc_attr__;esc_html_e;esc_html__\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: class-simple-image-widget.php:20
+msgid "Image"
+msgstr ""
+
+#: class-simple-image-widget.php:24
+msgid "Display an image"
+msgstr ""
+
+#: class-simple-image-widget.php:178
+msgid "Title:"
+msgstr ""
+
+#: class-simple-image-widget.php:184
+msgid "Choose an Image for the Widget"
+msgstr ""
+
+#: class-simple-image-widget.php:185
+msgid "Update Image"
+msgstr ""
+
+#: class-simple-image-widget.php:194
+msgid "Choose an Image"
+msgstr ""
+
+#: class-simple-image-widget.php:202
+msgid "These fields are here to maintain your data from an earlier version."
+msgstr ""
+
+#: class-simple-image-widget.php:205
+msgid ""
+"Select an image, then clear these values, and they will disappear when you "
+"save the widget."
+msgstr ""
+
+#: class-simple-image-widget.php:210
+msgid "Image URL:"
+msgstr ""
+
+#: class-simple-image-widget.php:214
+msgid "Alternate Text:"
+msgstr ""
+
+#: class-simple-image-widget.php:228
+msgid "Size:"
+msgstr ""
+
+#: class-simple-image-widget.php:247
+msgid "Link:"
+msgstr ""
+
+#: class-simple-image-widget.php:256
+msgid "Link Text:"
+msgstr ""
+
+#: class-simple-image-widget.php:265
+msgid "Text:"
+msgstr ""
+
+#: class-simple-image-widget.php:343 simple-image-widget.php:85
+#: simple-image-widget.php:186
+msgid "Full Size"
+msgstr ""
+
+#: simple-image-widget.php:83
+msgid "Choose an Attachment"
+msgstr ""
+
+#: simple-image-widget.php:84
+msgid "Update Attachment"
+msgstr ""
+
+#: simple-image-widget.php:183
+msgid "Thumbnail"
+msgstr ""
+
+#: simple-image-widget.php:184
+msgid "Medium"
+msgstr ""
+
+#: simple-image-widget.php:185
+msgid "Large"
+msgstr ""
