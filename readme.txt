@@ -11,7 +11,7 @@ A simple image widget utilizing the new WordPress media manager.
 
 == Description ==
 
-Simple Image Widget provides the absolute easiest method to quicky add an image to a sidebar or any other widget area. Despite it's simplicty, it can be extended by developers via the various built in hooks to create additional image-based widgets.
+Simple Image Widget provides the absolute easiest method to quicky add an image to a sidebar or any other widget area. Despite its simplicty, it can be extended by developers via the various built in hooks to create additional image-based widgets.
 
 Contribute to [development on GitHub](http://github.com/blazersix/simple-image-widget).
 
