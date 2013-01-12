@@ -195,7 +195,7 @@ class Simple_Image_Widget extends WP_Widget {
 				</p>
 			<?php endif; ?>
 			
-			<?php if ( ! empty( $instance['image'] ) ) : ?>
+			<?php if ( is_simple_image_widget_legacy() || ! empty( $instance['image'] ) ) : ?>
 				<div class="simple-image-widget-legacy-fields">
 					<?php if ( ! is_simple_image_widget_legacy() ) : ?>
 						<p>
