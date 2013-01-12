@@ -211,8 +211,8 @@ class Simple_Image_Widget extends WP_Widget {
 						<input type="text" name="<?php echo $this->get_field_name( 'image' ); ?>" id="<?php echo $this->get_field_id( 'image' ); ?>" value="<?php echo esc_url( $instance['image'] ); ?>" class="widefat">
 					</p>
 					<p>
-						<label for="<?php echo $this->get_field_id( 'image_alt' ); ?>"><?php _e( 'Alternate Text:', 'simple-image-widget' ); ?></label>
-						<input type="text" name="<?php echo $this->get_field_name( 'image_alt' ); ?>" id="<?php echo $this->get_field_id( 'image_alt' ); ?>" value="<?php echo esc_attr( $instance['alt'] ); ?>" class="widefat">
+						<label for="<?php echo $this->get_field_id( 'alt' ); ?>"><?php _e( 'Alternate Text:', 'simple-image-widget' ); ?></label>
+						<input type="text" name="<?php echo $this->get_field_name( 'alt' ); ?>" id="<?php echo $this->get_field_id( 'alt' ); ?>" value="<?php echo esc_attr( $instance['alt'] ); ?>" class="widefat">
 					</p>
 				</div>
 			<?php endif; ?>
