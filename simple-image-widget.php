@@ -3,7 +3,7 @@
  * Plugin Name: Simple Image Widget
  * Plugin URI: https://wordpress.org/extend/plugins/simple-image-widget/
  * Description: A simple image widget utilizing the new WordPress media manager.
- * Version: 3.0.1
+ * Version: 3.0.2
  * Author: Blazer Six
  * Author URI: http://www.blazersix.com/
  * License: GPL-2.0+

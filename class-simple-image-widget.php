@@ -96,7 +96,8 @@ class Simple_Image_Widget extends WP_Widget {
 		$link_open = '';
 		$link_close = '';
 		if ( ! empty ( $instance['link'] ) ) {
-			$link_open = '<a href="' . esc_url( $instance['link'] ) . '">';
+			$target = ( empty( $instance['new_window'] ) ) ? '' : ' target="_blank"';
+			$link_open = '<a href="' . esc_url( $instance['link'] ) . '"' . $target . '>';
 			$link_close = '</a>';
 		}
 		
@@ -120,10 +121,10 @@ class Simple_Image_Widget extends WP_Widget {
 				} elseif ( ! empty( $instance['image'] ) ) {
 					// Legacy output.
 					$output .= sprintf( '%s<img src="%s" alt="%s">%s',
-						$link_before,
+						$link_open,
 						esc_url( $instance['image'] ),
 						( empty( $instance['alt'] ) ) ? '' : esc_attr( $instance['alt'] ),
-						$link_after
+						$link_close
 					);
 				}
 				
@@ -156,6 +157,7 @@ class Simple_Image_Widget extends WP_Widget {
 			'image_size' => 'full',
 			'link'       => '',
 			'link_text'  => '',
+			'new_window' => '',
 			'title'      => '',
 			'text'       => '',
 		) );
@@ -243,9 +245,15 @@ class Simple_Image_Widget extends WP_Widget {
 						
 						case 'link' :
 							?>
-							<p>
+							<p style="margin-bottom: 0.25em">
 								<label for="<?php echo $this->get_field_id( 'link' ); ?>"><?php _e( 'Link:', 'simple-image-widget' ); ?></label>
 								<input type="text" name="<?php echo $this->get_field_name( 'link' ); ?>" id="<?php echo $this->get_field_id( 'link' ); ?>" value="<?php echo esc_url( $instance['link'] ); ?>" class="widefat">
+							</p>
+							<p style="padding-left: 2px">
+								<label for="<?php echo $this->get_field_id( 'new_window' ); ?>">
+									<input type="checkbox" name="<?php echo $this->get_field_name( 'new_window' ); ?>" id="<?php echo $this->get_field_id( 'new_window' ); ?>" <?php checked( $instance['new_window'] ); ?>>
+									<?php _e( 'Open in new window?', 'simple-image-widget' ); ?>
+								</label>
 							</p>
 							<?php		
 							break;
@@ -314,6 +322,7 @@ class Simple_Image_Widget extends WP_Widget {
 		$instance['image_id'] = absint( $new_instance['image_id'] );
 		$instance['link'] = esc_url_raw( $new_instance['link'] );
 		$instance['link_text'] = wp_kses_data( $new_instance['link_text'] );
+		$instance['new_window'] = isset( $new_instance['new_window'] );
 		$instance['text'] = wp_kses_data( $new_instance['text'] );
 		
 		$instance['image'] = esc_url_raw( $new_instance['image'] ); // Legacy image URL.

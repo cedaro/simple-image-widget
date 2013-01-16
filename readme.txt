@@ -3,7 +3,7 @@ Contributors: blazersix, bradyvercher
 Tags: image widget, widget, media, media manager, sidebar, image, photo, picture
 Requires at least: 3.3
 Tested up to: 3.5
-Stable tag: 3.0.1
+Stable tag: 3.0.2
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -31,6 +31,10 @@ Development and maintenance of this plugin was taken over by Blazer Six starting
 Read about the original thought behind creating this widget and ways it can be extended in [this blog post](http://www.blazersix.com/blog/wordpress-image-widget/).
 
 == Changelog ==
+
+= 3.0.2 =
+* Implemented feature for opening links in a new tab/window.
+* Fixed a bug preventing links in legacy widgets to not work.
 
 = 3.0.1 =
 * Removed the main plugin file for the previous version.
