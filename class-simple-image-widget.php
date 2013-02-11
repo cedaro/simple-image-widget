@@ -353,7 +353,7 @@ class Simple_Image_Widget extends WP_Widget {
 		
 		$imagedata = wp_get_attachment_metadata( $image_id );
 		if ( isset( $imagedata['sizes'] ) ) {
-			$size_names = simple_image_widget_Loader::get_image_size_names();
+			$size_names = Simple_Image_Widget_Loader::get_image_size_names();
 			
 			$sizes['full'] .= ( isset( $imagedata['width'] ) && isset( $imagedata['height'] ) ) ? sprintf( ' (%d&times;%d)', $imagedata['width'], $imagedata['height'] ) : '';
 			
