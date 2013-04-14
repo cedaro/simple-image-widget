@@ -2,8 +2,8 @@
 Contributors: blazersix, bradyvercher
 Tags: image widget, widget, media, media manager, sidebar, image, photo, picture
 Requires at least: 3.3
-Tested up to: 3.5
-Stable tag: 3.0.2
+Tested up to: 3.5.1
+Stable tag: trunk
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -31,6 +31,11 @@ Development and maintenance of this plugin was taken over by Blazer Six starting
 Read about the original thought behind creating this widget and ways it can be extended in [this blog post](http://www.blazersix.com/blog/wordpress-image-widget/).
 
 == Changelog ==
+
+= 3.0.3 =
+* Fixed PHP class name formatting.
+* Added 'link_open' and 'link_close' args to the $instance when rendering the widget display.
+* Added a 'simple-image' CSS class to the image wrapper.
 
 = 3.0.2 =
 * Implemented feature for opening links in a new tab/window.
