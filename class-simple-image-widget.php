@@ -93,12 +93,12 @@ class Simple_Image_Widget extends WP_Widget {
 	 * @since 3.0.0
 	 */
 	function render( $args, $instance ) {
-		$link_open = '';
-		$link_close = '';
+		$instance['link_open'] = '';
+		$instance['link_close'] = '';
 		if ( ! empty ( $instance['link'] ) ) {
 			$target = ( empty( $instance['new_window'] ) ) ? '' : ' target="_blank"';
-			$link_open = '<a href="' . esc_url( $instance['link'] ) . '"' . $target . '>';
-			$link_close = '</a>';
+			$instance['link_open'] = '<a href="' . esc_url( $instance['link'] ) . '"' . $target . '>';
+			$instance['link_close'] = '</a>';
 		}
 		
 		$output = $args['before_widget'];
@@ -114,17 +114,17 @@ class Simple_Image_Widget extends WP_Widget {
 					$image_size = ( ! empty( $instance['image_size'] ) ) ? $instance['image_size'] : apply_filters( 'simple_image_widget_output_default_size', 'medium', $this->id_base );
 					
 					$output .= sprintf( '<p>%s%s%s</p>',
-						$link_open,
+						$instance['link_open'],
 						wp_get_attachment_image( $instance['image_id'], $image_size ),
-						$link_close
+						$instance['link_close']
 					);
 				} elseif ( ! empty( $instance['image'] ) ) {
 					// Legacy output.
 					$output .= sprintf( '%s<img src="%s" alt="%s">%s',
-						$link_open,
+						$instance['link_open'],
 						esc_url( $instance['image'] ),
 						( empty( $instance['alt'] ) ) ? '' : esc_attr( $instance['alt'] ),
-						$link_close
+						$instance['link_close']
 					);
 				}
 				
@@ -134,8 +134,8 @@ class Simple_Image_Widget extends WP_Widget {
 				}
 				
 				// Add a more link.
-				if ( ! empty( $link_open ) && ! empty( $instance['link_text'] ) ) {
-					$output .= '<p class="more">' . $link_open . $instance['link_text'] . $link_close . '</p>';
+				if ( ! empty( $instance['link_open'] ) && ! empty( $instance['link_text'] ) ) {
+					$output .= '<p class="more">' . $instance['link_open'] . $instance['link_text'] . $instance['link_close'] . '</p>';
 				}
 			}
 		
