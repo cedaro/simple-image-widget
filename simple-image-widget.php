@@ -23,11 +23,6 @@
 require_once( plugin_dir_path( __FILE__ ) . 'class-simple-image-widget.php' );
 
 /**
- * Load the plugin when plugins are loaded.
- */
-add_action( 'plugins_loaded', array( 'Simple_Image_Widget_Loader', 'load' ) );
-
-/**
  * The main plugin class for loading the widget and attaching necessary hooks.
  *
  * @since 3.0.0
@@ -186,6 +181,7 @@ class Simple_Image_Widget_Loader {
 		) );
 	}
 }
+add_action( 'plugins_loaded', array( 'Simple_Image_Widget_Loader', 'load' ) );
 
 /**
  * Check to see if the current version of WordPress supports the new media manager.
