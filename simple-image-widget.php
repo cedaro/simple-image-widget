@@ -9,7 +9,7 @@
  * License: GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: simple-image-widget
- * Domain Path: /languages/
+ * Domain Path: /languages
  *
  * @package SimpleImageWidget
  * @author Brady Vercher <brady@blazersix.com>
@@ -39,7 +39,7 @@ class Simple_Image_Widget_Loader {
 	 * @since 3.0.0
 	 */
 	public static function load() {
-		add_action( 'init', array( __CLASS__, 'l10n' ) );
+		add_action( 'init', array( __CLASS__, 'load_textdomain' ) );
 		add_action( 'widgets_init', array( __CLASS__, 'register_widget' ) );
 		
 		if ( is_simple_image_widget_legacy() ) {
@@ -57,11 +57,10 @@ class Simple_Image_Widget_Loader {
 	 *
 	 * @since 3.0.0
 	 */
-	public static function l10n() {
-		// The "plugin_locale" filter is also used in load_plugin_textdomain()
+	public static function load_textdomain() {
 		$locale = apply_filters( 'plugin_locale', get_locale(), 'simple-image-widget' );
-		load_textdomain( 'simple-image-widget', WP_LANG_DIR . '/simple-image-widget/simple-image-widget-' . $locale . '.mo' );
-		load_plugin_textdomain( 'simple-image-widget', false, dirname( plugin_basename( __FILE__ ) ) . 'languages/' );
+		load_textdomain( 'simple-image-widget', WP_LANG_DIR . '/simple-image-widget/' . $locale . '.mo' );
+		load_plugin_textdomain( 'simple-image-widget', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 	}
 	
 	/**
