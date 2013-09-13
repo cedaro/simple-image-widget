@@ -2,7 +2,7 @@
 Contributors: blazersix, bradyvercher
 Tags: image widget, widget, media, media manager, sidebar, image, photo, picture
 Requires at least: 3.3
-Tested up to: 3.6
+Tested up to: 3.6.1
 Stable tag: trunk
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -38,6 +38,11 @@ When selecting an image in the media manager (not in the widget itself), the rig
 2. The widget after selecting an image.
 
 == Changelog ==
+
+= 3.0.4 =
+* Fixed a slash preventing custom translations from loading.
+* Dropped the textdomain from custom translation filenames.
+* Minor code formatting updates.
 
 = 3.0.3 =
 * Fixed PHP class name formatting.
