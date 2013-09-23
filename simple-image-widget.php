@@ -34,7 +34,7 @@ class Simple_Image_Widget_Loader {
 	 * @since 3.0.0
 	 */
 	public static function load() {
-		add_action( 'init', array( __CLASS__, 'load_textdomain' ) );
+		self::load_textdomain();
 		add_action( 'widgets_init', array( __CLASS__, 'register_widget' ) );
 
 		if ( is_simple_image_widget_legacy() ) {
