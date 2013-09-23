@@ -41,7 +41,8 @@ When selecting an image in the media manager (not in the widget itself), the rig
 
 = 3.0.4 =
 * Fixed a slash preventing custom translations from loading.
-* Dropped the textdomain from custom translation filenames.
+* Dropped the text domain from custom translation filenames.
+* Loading the text domain earlier so the widget title and description can be filtered.
 * Minor code formatting updates.
 
 = 3.0.3 =
