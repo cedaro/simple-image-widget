@@ -2,7 +2,7 @@
 Contributors: blazersix, bradyvercher
 Tags: image widget, widget, media, media manager, sidebar, image, photo, picture
 Requires at least: 3.3
-Tested up to: 3.6.1
+Tested up to: 3.7
 Stable tag: trunk
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
