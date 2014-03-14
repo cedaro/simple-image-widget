@@ -40,12 +40,15 @@ class Simple_Image_Widget extends WP_Widget {
 	 */
 	public function __construct( $id_base = false, $name = false, $widget_options = array(), $control_options = array() ) {
 		$id_base = ( $id_base ) ? $id_base : 'simpleimage'; // Legacy ID.
-		$name = ( $name ) ? $name : __( 'Image', 'simple-image-widget' );
+		$name    = ( $name ) ? $name : __( 'Image', 'simple-image-widget' );
 
-		$widget_options = wp_parse_args( $widget_options, array(
-			'classname'   => 'widget_simpleimage', // Legacy class name.
-			'description' => __( 'Display an image', 'simple-image-widget' ),
-		) );
+		$widget_options = wp_parse_args(
+			$widget_options,
+			array(
+				'classname'   => 'widget_simpleimage', // Legacy class name.
+				'description' => __( 'Display an image', 'simple-image-widget' ),
+			)
+		);
 
 		$control_options = wp_parse_args( $control_options, array() );
 
@@ -94,11 +97,13 @@ class Simple_Image_Widget extends WP_Widget {
 		}
 
 		if ( empty( $output ) ) {
-			$instance['link_open'] = '';
+			$instance['link_open']  = '';
 			$instance['link_close'] = '';
+
 			if ( ! empty ( $instance['link'] ) ) {
 				$target = ( empty( $instance['new_window'] ) ) ? '' : ' target="_blank"';
-				$instance['link_open'] = '<a href="' . esc_url( $instance['link'] ) . '"' . $target . '>';
+
+				$instance['link_open']  = '<a href="' . esc_url( $instance['link'] ) . '"' . $target . '>';
 				$instance['link_close'] = '</a>';
 			}
 
@@ -129,37 +134,37 @@ class Simple_Image_Widget extends WP_Widget {
 	public function render( $args, $instance ) {
 		$output = $args['before_widget'];
 
-			/**
-			 * Widget HTML output.
-			 *
-			 * @since 3.0.0
-			 *
-			 * @param string $output   Widget output.
-			 * @param array  $args     Registered sidebar arguments including before_title, after_title, before_widget, and after_widget.
-	 		 * @param array  $instance The widget instance settings.
-			 * @param string $id_base  Widget type id.
-			 */
-			$inside = apply_filters( 'simple_image_widget_output', '', $args, $instance, $this->id_base );
+		/**
+		 * Widget HTML output.
+		 *
+		 * @since 3.0.0
+		 *
+		 * @param string $output   Widget output.
+		 * @param array  $args     Registered sidebar arguments including before_title, after_title, before_widget, and after_widget.
+		 * @param array  $instance The widget instance settings.
+		 * @param string $id_base  Widget type id.
+		 */
+		$inside = apply_filters( 'simple_image_widget_output', '', $args, $instance, $this->id_base );
 
-			if ( $inside ) {
-				$output .= $inside;
-			} else {
-				$data = array();
-				$data['args'] = $args;
-				$data['after_title'] = $args['after_title'];
-				$data['before_title'] = $args['before_title'];
-				$data['image_size'] = $image_size = ( ! empty( $instance['image_size'] ) ) ? $instance['image_size'] : apply_filters( 'simple_image_widget_output_default_size', 'medium', $this->id_base );
-				$data['title'] = ( empty( $instance['title'] ) ) ? '' : $args['before_title'] . $instance['title'] . $args['after_title'];
-				$data = array_merge( $instance, $data );
+		if ( $inside ) {
+			$output .= $inside;
+		} else {
+			$data = array();
+			$data['args'] = $args;
+			$data['after_title'] = $args['after_title'];
+			$data['before_title'] = $args['before_title'];
+			$data['image_size'] = $image_size = ( ! empty( $instance['image_size'] ) ) ? $instance['image_size'] : apply_filters( 'simple_image_widget_output_default_size', 'medium', $this->id_base );
+			$data['title'] = ( empty( $instance['title'] ) ) ? '' : $args['before_title'] . $instance['title'] . $args['after_title'];
+			$data = array_merge( $instance, $data );
 
-				ob_start();
-				$templates = $this->get_template_names( $args, $instance );
+			ob_start();
+			$templates = $this->get_template_names( $args, $instance );
 
-				$template_loader = new Simple_Image_Widget_Template_Loader();
-				$template = $template_loader->locate_template( $templates );
-				$template_loader->load_template( $template, $data );
-				$output .= ob_get_clean();
-			}
+			$template_loader = new Simple_Image_Widget_Template_Loader();
+			$template = $template_loader->locate_template( $templates );
+			$template_loader->load_template( $template, $data );
+			$output .= ob_get_clean();
+		}
 
 		$output .= $args['after_widget'];
 
@@ -174,23 +179,26 @@ class Simple_Image_Widget extends WP_Widget {
 	 * @param array $instance The widget settings.
 	 */
 	public function form( $instance ) {
-		$instance = wp_parse_args( (array) $instance, array(
-			'alt'        => '', // Legacy.
-			'image'      => '', // Legacy URL field.
-			'image_id'   => '',
-			'image_size' => 'full',
-			'link'       => '',
-			'link_text'  => '',
-			'new_window' => '',
-			'title'      => '',
-			'text'       => '',
-		) );
+		$instance = wp_parse_args(
+			(array) $instance,
+			array(
+				'alt'        => '', // Legacy.
+				'image'      => '', // Legacy URL field.
+				'image_id'   => '',
+				'image_size' => 'full',
+				'link'       => '',
+				'link_text'  => '',
+				'new_window' => '',
+				'title'      => '',
+				'text'       => '',
+			)
+		);
 
 		$instance['image_id'] = absint( $instance['image_id'] );
-		$instance['title'] = wp_strip_all_tags( $instance['title'] );
+		$instance['title']    = wp_strip_all_tags( $instance['title'] );
 
 		$button_class = array( 'button', 'button-hero', 'simple-image-widget-control-choose' );
-		$image_id = $instance['image_id'];
+		$image_id     = $instance['image_id'];
 
 		/**
 		 * The list of fields to display.
@@ -220,12 +228,12 @@ class Simple_Image_Widget extends WP_Widget {
 			 */
 			do_action( 'simple_image_widget_form_before', $instance, $this->id_base );
 			?>
-
+	
 			<p>
-				<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'simple-image-widget' ); ?></label>
-				<input type="text" name="<?php echo $this->get_field_name( 'title' ); ?>" id="<?php echo $this->get_field_id( 'title' ); ?>" value="<?php echo esc_attr( $instance['title'] ); ?>" class="widefat">
+				<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php _e( 'Title:', 'simple-image-widget' ); ?></label>
+				<input type="text" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" value="<?php echo esc_attr( $instance['title'] ); ?>" class="widefat">
 			</p>
-
+	
 			<?php if ( ! is_simple_image_widget_legacy() ) : ?>
 				<p class="simple-image-widget-control<?php echo ( $image_id ) ? ' has-image' : ''; ?>"
 					data-title="<?php esc_attr_e( 'Choose an Image', 'simple-image-widget' ); ?>"
@@ -237,11 +245,11 @@ class Simple_Image_Widget extends WP_Widget {
 						unset( $button_class[ array_search( 'button-hero', $button_class ) ] );
 					}
 					?>
-					<input type="hidden" name="<?php echo $this->get_field_name( 'image_id' ); ?>" id="<?php echo $this->get_field_id( 'image_id' ); ?>" value="<?php echo $image_id; ?>" class="image-id simple-image-widget-control-target">
-					<a href="#" class="<?php echo join( ' ', $button_class ); ?>"><?php _e( 'Choose an Image', 'simple-image-widget' ); ?></a>
+					<input type="hidden" name="<?php echo esc_attr( $this->get_field_name( 'image_id' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'image_id' ) ); ?>" value="<?php echo absint( $image_id ); ?>" class="image-id simple-image-widget-control-target">
+					<a href="#" class="<?php echo esc_attr( join( ' ', $button_class ) ); ?>"><?php _e( 'Choose an Image', 'simple-image-widget' ); ?></a>
 				</p>
 			<?php endif; ?>
-
+	
 			<?php
 			if ( ! empty( $fields ) ) {
 				foreach ( $fields as $field ) {
@@ -250,11 +258,12 @@ class Simple_Image_Widget extends WP_Widget {
 							$sizes = $this->get_image_sizes( $image_id );
 							?>
 							<p>
-								<label for="<?php echo $this->get_field_id( 'image_size' ); ?>"><?php _e( 'Size:', 'simple-image-widget' ); ?></label>
-								<select name="<?php echo $this->get_field_name( 'image_size' ); ?>" id="<?php echo $this->get_field_id( 'image_size' ); ?>" class="widefat image-size"<?php echo ( sizeof( $sizes ) < 2 ) ? ' disabled="disabled"' : ''; ?>>
+								<label for="<?php echo esc_attr( $this->get_field_id( 'image_size' ) ); ?>"><?php _e( 'Size:', 'simple-image-widget' ); ?></label>
+								<select name="<?php echo esc_attr( $this->get_field_name( 'image_size' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'image_size' ) ); ?>" class="widefat image-size"<?php echo ( sizeof( $sizes ) < 2 ) ? ' disabled="disabled"' : ''; ?>>
 									<?php
 									foreach ( $sizes as $id => $label ) {
-										printf( '<option value="%s"%s>%s</option>',
+										printf(
+											'<option value="%s"%s>%s</option>',
 											esc_attr( $id ),
 											selected( $instance['image_size'], $id, false ),
 											esc_html( $label )
@@ -265,40 +274,40 @@ class Simple_Image_Widget extends WP_Widget {
 							</p>
 							<?php
 							break;
-
+	
 						case 'link' :
 							?>
 							<p style="margin-bottom: 0.25em">
-								<label for="<?php echo $this->get_field_id( 'link' ); ?>"><?php _e( 'Link:', 'simple-image-widget' ); ?></label>
-								<input type="text" name="<?php echo $this->get_field_name( 'link' ); ?>" id="<?php echo $this->get_field_id( 'link' ); ?>" value="<?php echo esc_url( $instance['link'] ); ?>" class="widefat">
+								<label for="<?php echo esc_attr( $this->get_field_id( 'link' ) ); ?>"><?php _e( 'Link:', 'simple-image-widget' ); ?></label>
+								<input type="text" name="<?php echo esc_attr( $this->get_field_name( 'link' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'link' ) ); ?>" value="<?php echo esc_url( $instance['link'] ); ?>" class="widefat">
 							</p>
 							<p style="padding-left: 2px">
-								<label for="<?php echo $this->get_field_id( 'new_window' ); ?>">
-									<input type="checkbox" name="<?php echo $this->get_field_name( 'new_window' ); ?>" id="<?php echo $this->get_field_id( 'new_window' ); ?>" <?php checked( $instance['new_window'] ); ?>>
+								<label for="<?php echo esc_attr( $this->get_field_id( 'new_window' ) ); ?>">
+									<input type="checkbox" name="<?php echo esc_attr( $this->get_field_name( 'new_window' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'new_window' ) ); ?>" <?php checked( $instance['new_window'] ); ?>>
 									<?php _e( 'Open in new window?', 'simple-image-widget' ); ?>
 								</label>
 							</p>
 							<?php
 							break;
-
+	
 						case 'link_text' :
 							?>
 							<p>
-								<label for="<?php echo $this->get_field_id( 'link_text' ); ?>"><?php _e( 'Link Text:', 'simple-image-widget' ); ?></label>
-								<input type="text" name="<?php echo $this->get_field_name( 'link_text' ); ?>" id="<?php echo $this->get_field_id( 'link_text' ); ?>" value="<?php echo esc_attr( $instance['link_text'] ); ?>" class="widefat">
+								<label for="<?php echo esc_attr( $this->get_field_id( 'link_text' ) ); ?>"><?php _e( 'Link Text:', 'simple-image-widget' ); ?></label>
+								<input type="text" name="<?php echo esc_attr( $this->get_field_name( 'link_text' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'link_text' ) ); ?>" value="<?php echo esc_attr( $instance['link_text'] ); ?>" class="widefat">
 							</p>
 							<?php
 							break;
-
+	
 						case 'text' :
 							?>
 							<p>
-								<label for="<?php echo $this->get_field_id( 'text' ); ?>"><?php _e( 'Text:', 'simple-image-widget' ); ?></label>
-								<textarea name="<?php echo $this->get_field_name( 'text' ); ?>" id="<?php echo $this->get_field_id( 'text' ); ?>" rows="4" class="widefat"><?php echo esc_textarea( $instance['text'] ); ?></textarea>
+								<label for="<?php echo esc_attr( $this->get_field_id( 'text' ) ); ?>"><?php _e( 'Text:', 'simple-image-widget' ); ?></label>
+								<textarea name="<?php echo esc_attr( $this->get_field_name( 'text' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'text' ) ); ?>" rows="4" class="widefat"><?php echo esc_textarea( $instance['text'] ); ?></textarea>
 							</p>
 							<?php
 							break;
-
+	
 						default :
 							/**
 							 * Display a custom field.
@@ -316,7 +325,7 @@ class Simple_Image_Widget extends WP_Widget {
 					}
 				}
 			}
-
+	
 			/**
 			 * Display additional information or HTML after the widget edit form.
 			 *
@@ -328,7 +337,7 @@ class Simple_Image_Widget extends WP_Widget {
 			do_action( 'simple_image_widget_form_after', $instance, $this->id_base );
 			?>
 
-		</div>
+		</div><!-- /.simple-image-widget-form -->
 		<?php
 	}
 
@@ -359,12 +368,12 @@ class Simple_Image_Widget extends WP_Widget {
 
 		$instance = apply_filters( 'simple_image_widget_instance', $instance, $new_instance, $old_instance, $this->id_base );
 
-		$instance['title'] = wp_strip_all_tags( $new_instance['title'] );
-		$instance['image_id'] = absint( $new_instance['image_id'] );
-		$instance['link'] = esc_url_raw( $new_instance['link'] );
-		$instance['link_text'] = wp_kses_data( $new_instance['link_text'] );
+		$instance['title']      = wp_strip_all_tags( $new_instance['title'] );
+		$instance['image_id']   = absint( $new_instance['image_id'] );
+		$instance['link']       = esc_url_raw( $new_instance['link'] );
+		$instance['link_text']  = wp_kses_data( $new_instance['link_text'] );
 		$instance['new_window'] = isset( $new_instance['new_window'] );
-		$instance['text'] = wp_kses_data( $new_instance['text'] );
+		$instance['text']       = wp_kses_data( $new_instance['text'] );
 
 		$this->flush_widget_cache();
 
@@ -388,7 +397,7 @@ class Simple_Image_Widget extends WP_Widget {
 
 			$sizes['full'] .= ( isset( $imagedata['width'] ) && isset( $imagedata['height'] ) ) ? sprintf( ' (%d&times;%d)', $imagedata['width'], $imagedata['height'] ) : '';
 
-			foreach( $imagedata['sizes'] as $_size => $data ) {
+			foreach ( $imagedata['sizes'] as $_size => $data ) {
 				$label  = ( isset( $size_names[ $_size ] ) ) ? $size_names[ $_size ] : ucwords( $_size );
 				$label .= sprintf( ' (%d&times;%d)', $data['width'], $data['height'] );
 
@@ -455,7 +464,7 @@ class Simple_Image_Widget extends WP_Widget {
 			'simple_image_widget_templates',
 			array(
 				"{$args['id']}_widget.php",
-				"widget.php"
+				"widget.php",
 			),
 			$args,
 			$instance,

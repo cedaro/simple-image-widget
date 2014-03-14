@@ -77,14 +77,18 @@ class Simple_Image_Widget_Plugin {
 			array( 'media-upload', 'media-views' )
 		);
 
-		wp_localize_script( 'simple-image-widget-admin', 'SimpleImageWidget', array(
-			'l10n' => array(
-				'frameTitle'      => __( 'Choose an Attachment', 'simple-image-widget' ),
-				'frameUpdateText' => __( 'Update Attachment', 'simple-image-widget' ),
-				'fullSizeLabel'   => __( 'Full Size', 'simple-image-widget' ),
-				'imageSizeNames'  => self::get_image_size_names(),
-			),
-		) );
+		wp_localize_script(
+			'simple-image-widget-admin',
+			'SimpleImageWidget',
+			array(
+				'l10n' => array(
+					'frameTitle'      => __( 'Choose an Attachment', 'simple-image-widget' ),
+					'frameUpdateText' => __( 'Update Attachment', 'simple-image-widget' ),
+					'fullSizeLabel'   => __( 'Full Size', 'simple-image-widget' ),
+					'imageSizeNames'  => self::get_image_size_names(),
+				),
+			)
+		);
 	}
 
 	/**
@@ -117,11 +121,14 @@ class Simple_Image_Widget_Plugin {
 	 * @return array Array of thumbnail sizes.
 	 */
 	public static function get_image_size_names() {
-		return apply_filters( 'image_size_names_choose', array(
-			'thumbnail' => __( 'Thumbnail', 'simple-image-widget' ),
-			'medium'    => __( 'Medium', 'simple-image-widget' ),
-			'large'     => __( 'Large', 'simple-image-widget' ),
-			'full'      => __( 'Full Size', 'simple-image-widget' ),
-		) );
+		return apply_filters(
+			'image_size_names_choose',
+			array(
+				'thumbnail' => __( 'Thumbnail', 'simple-image-widget' ),
+				'medium'    => __( 'Medium', 'simple-image-widget' ),
+				'large'     => __( 'Large', 'simple-image-widget' ),
+				'full'      => __( 'Full Size', 'simple-image-widget' ),
+			)
+		);
 	}
 }

@@ -47,7 +47,8 @@ class Simple_Image_Widget_Legacy {
 		$output = ( empty( $instance['title'] ) ) ? '' : $args['before_title'] . $instance['title'] . $args['after_title'];
 
 		// Add the image.
-		$output = sprintf( '%s<img src="%s" alt="%s">%s',
+		$output = sprintf(
+			'%s<img src="%s" alt="%s">%s',
 			$instance['link_open'],
 			esc_url( $instance['image'] ),
 			( empty( $instance['alt'] ) ) ? '' : esc_attr( $instance['alt'] ),
@@ -112,12 +113,12 @@ class Simple_Image_Widget_Legacy {
 				<?php endif; ?>
 
 				<p>
-					<label for="<?php echo $widget->get_field_id( 'image' ); ?>"><?php _e( 'Image URL:', 'simple-image-widget' ); ?></label>
-					<input type="text" name="<?php echo $widget->get_field_name( 'image' ); ?>" id="<?php echo $widget->get_field_id( 'image' ); ?>" value="<?php echo esc_url( $instance['image'] ); ?>" class="widefat">
+					<label for="<?php echo esc_attr( $widget->get_field_id( 'image' ) ); ?>"><?php _e( 'Image URL:', 'simple-image-widget' ); ?></label>
+					<input type="text" name="<?php echo esc_attr( $widget->get_field_name( 'image' ) ); ?>" id="<?php echo esc_attr( $widget->get_field_id( 'image' ) ); ?>" value="<?php echo esc_url( $instance['image'] ); ?>" class="widefat">
 				</p>
 				<p>
-					<label for="<?php echo $widget->get_field_id( 'alt' ); ?>"><?php _e( 'Alternate Text:', 'simple-image-widget' ); ?></label>
-					<input type="text" name="<?php echo $widget->get_field_name( 'alt' ); ?>" id="<?php echo $widget->get_field_id( 'alt' ); ?>" value="<?php echo esc_attr( $instance['alt'] ); ?>" class="widefat">
+					<label for="<?php echo esc_attr( $widget->get_field_id( 'alt' ) ); ?>"><?php _e( 'Alternate Text:', 'simple-image-widget' ); ?></label>
+					<input type="text" name="<?php echo esc_attr( $widget->get_field_name( 'alt' ) ); ?>" id="<?php echo esc_attr( $widget->get_field_id( 'alt' ) ); ?>" value="<?php echo esc_attr( $instance['alt'] ); ?>" class="widefat">
 				</p>
 			</div>
 			<?php
