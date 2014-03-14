@@ -1,0 +1,27 @@
+{
+  "name": "simple-image-widget",
+  "version": "4.0.0",
+  "description": "A simple WordPress image widget.",
+  "main": "Gruntfile.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blazersix/simple-image-widget.git"
+  },
+  "author": {
+    "name": "Brady Vercher",
+    "email": "brady@blazersix.com",
+    "url": "http://www.blazersix.com/"
+  },
+  "license": "GPL-2.0+",
+  "bugs": {
+    "url": "https://github.com/blazersix/simple-image-widget/issues"
+  },
+  "homepage": "https://github.com/blazersix/simple-image-widget",
+  "devDependencies": {
+    "grunt": "~0.4.3",
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-wp-i18n": "~0.4.0",
+    "matchdep": "~0.3.0"
+  }
+}

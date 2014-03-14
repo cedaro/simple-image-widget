@@ -1,21 +1,44 @@
 <?php
 /**
+ * The image widget.
+ *
+ * @package   SimpleImageWidget
+ * @copyright Copyright (c) 2014, Blazer Six, Inc.
+ * @license   GPL-2.0+
+ * @since     3.0.0
+ */
+
+/**
  * Image widget class.
  *
  * @package SimpleImageWidget
- *
- * @since 3.0.0
+ * @since   3.0.0
  */
 class Simple_Image_Widget extends WP_Widget {
 	/**
 	 * Setup widget options.
 	 *
-	 * Allows child classes to overload the defaults.
+	 * Child classes may override the defaults.
 	 *
 	 * @since 3.0.0
-	 * @see WP_Widget::construct()
+	 * @see   WP_Widget::construct()
+	 *
+	 * @param string $id_base Optional Base ID for the widget, lower case, if
+	 *     left empty a portion of the widget's class name will be used. Must be unique.
+	 * @param string $name Name for the widget displayed on the configuration page.
+	 * @param array  $widget_options {
+	 *     Widget options. Passed to wp_register_sidebar_widget(). Optional.
+	 *
+	 *	   @type string $description Widget description. Shown on the configuration page.
+	 *	   @type string $classname   HTML class.
+	 * }
+	 * @param array $control_options {
+	 *     Passed to wp_register_widget_control(). Optional.
+	 *
+	 *	   @type int $width  Width of the widget edit form.
+	 * )
 	 */
-	function __construct( $id_base = false, $name = false, $widget_options = array(), $control_options = array() ) {
+	public function __construct( $id_base = false, $name = false, $widget_options = array(), $control_options = array() ) {
 		$id_base = ( $id_base ) ? $id_base : 'simpleimage'; // Legacy ID.
 		$name = ( $name ) ? $name : __( 'Image', 'simple-image-widget' );
 
@@ -24,9 +47,7 @@ class Simple_Image_Widget extends WP_Widget {
 			'description' => __( 'Display an image', 'simple-image-widget' ),
 		) );
 
-		$control_options = wp_parse_args( $control_options, array(
-			'width' => 300
-		) );
+		$control_options = wp_parse_args( $control_options, array() );
 
 		parent::__construct( $id_base, $name, $widget_options, $control_options );
 
@@ -37,14 +58,17 @@ class Simple_Image_Widget extends WP_Widget {
 	}
 
 	/**
-	 * Default widget front end display method.
+	 * Display the widget.
 	 *
 	 * Filters the instance data, fetches the output, displays it, then caches
 	 * it. Overload or filter the render() method to modify output.
 	 *
 	 * @since 3.0.0
+	 *
+	 * @param array $args     Registered sidebar arguments including before_title, after_title, before_widget, and after_widget.
+	 * @param array $instance The widget instance settings.
 	 */
-	function widget( $args, $instance ) {
+	public function widget( $args, $instance ) {
 		$cache = (array) wp_cache_get( 'simple_image_widget', 'widget' );
 
 		if ( isset( $cache[ $this->id ] ) ) {
@@ -52,13 +76,11 @@ class Simple_Image_Widget extends WP_Widget {
 			return;
 		}
 
-		// Copy the original title so it can be passed to hooks.
+		// Copy the original values so they can be used in hooks.
+		$instance['text_raw']  = $instance['text'];
 		$instance['title_raw'] = $instance['title'];
-		$instance['title'] = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
-
-		// Copy the original text so it can be passed to hooks.
-		$instance['text_raw'] = $instance['text'];
-		$instance['text'] = apply_filters( 'widget_text', empty( $instance['text'] ) ? '' : $instance['text'], $instance, $this->id_base );
+		$instance['text']      = apply_filters( 'widget_text', empty( $instance['text'] ) ? '' : $instance['text'], $instance, $this->id_base );
+		$instance['title']     = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
 
 		// Start building the output.
 		$output = '';
@@ -72,6 +94,14 @@ class Simple_Image_Widget extends WP_Widget {
 		}
 
 		if ( empty( $output ) ) {
+			$instance['link_open'] = '';
+			$instance['link_close'] = '';
+			if ( ! empty ( $instance['link'] ) ) {
+				$target = ( empty( $instance['new_window'] ) ) ? '' : ' target="_blank"';
+				$instance['link_open'] = '<a href="' . esc_url( $instance['link'] ) . '"' . $target . '>';
+				$instance['link_close'] = '</a>';
+			}
+
 			$output = $this->render( $args, $instance );
 		}
 
@@ -85,58 +115,50 @@ class Simple_Image_Widget extends WP_Widget {
 	 * Generate the widget output.
 	 *
 	 * This is typically done in the widget() method, but moving it to a
-	 * separate method allows for the routine to be easily overloaded by a
-	 * class extending this one without having to reimplement all the caching
-	 * and filtering, or resorting to adding a filter, calling the parent
-	 * method, then removing the filter.
+	 * separate method allows for the routine to be easily overloaded by a class
+	 * extending this one without having to reimplement all the caching and
+	 * filtering, or resorting to adding a filter, calling the parent method,
+	 * then removing the filter.
 	 *
 	 * @since 3.0.0
+	 *
+	 * @param array   $args     Registered sidebar arguments including before_title, after_title, before_widget, and after_widget.
+	 * @param array   $instance The widget instance settings.
+	 * @return string HTML output.
 	 */
-	function render( $args, $instance ) {
-		$instance['link_open'] = '';
-		$instance['link_close'] = '';
-		if ( ! empty ( $instance['link'] ) ) {
-			$target = ( empty( $instance['new_window'] ) ) ? '' : ' target="_blank"';
-			$instance['link_open'] = '<a href="' . esc_url( $instance['link'] ) . '"' . $target . '>';
-			$instance['link_close'] = '</a>';
-		}
-
+	public function render( $args, $instance ) {
 		$output = $args['before_widget'];
 
-			// Allow custom output to override the default HTML.
-			if ( $inside = apply_filters( 'simple_image_widget_output', '', $args, $instance, $this->id_base ) ) {
+			/**
+			 * Widget HTML output.
+			 *
+			 * @since 3.0.0
+			 *
+			 * @param string $output   Widget output.
+			 * @param array  $args     Registered sidebar arguments including before_title, after_title, before_widget, and after_widget.
+	 		 * @param array  $instance The widget instance settings.
+			 * @param string $id_base  Widget type id.
+			 */
+			$inside = apply_filters( 'simple_image_widget_output', '', $args, $instance, $this->id_base );
+
+			if ( $inside ) {
 				$output .= $inside;
 			} else {
-				$output .= ( empty( $instance['title'] ) ) ? '' : $args['before_title']. $instance['title'] . $args['after_title'];
+				$data = array();
+				$data['args'] = $args;
+				$data['after_title'] = $args['after_title'];
+				$data['before_title'] = $args['before_title'];
+				$data['image_size'] = $image_size = ( ! empty( $instance['image_size'] ) ) ? $instance['image_size'] : apply_filters( 'simple_image_widget_output_default_size', 'medium', $this->id_base );
+				$data['title'] = ( empty( $instance['title'] ) ) ? '' : $args['before_title'] . $instance['title'] . $args['after_title'];
+				$data = array_merge( $instance, $data );
 
-				// Add the image.
-				if ( ! empty( $instance['image_id'] ) ) {
-					$image_size = ( ! empty( $instance['image_size'] ) ) ? $instance['image_size'] : apply_filters( 'simple_image_widget_output_default_size', 'medium', $this->id_base );
+				ob_start();
+				$templates = $this->get_template_names( $args, $instance );
 
-					$output .= sprintf( '<p class="simple-image">%s%s%s</p>',
-						$instance['link_open'],
-						wp_get_attachment_image( $instance['image_id'], $image_size ),
-						$instance['link_close']
-					);
-				} elseif ( ! empty( $instance['image'] ) ) {
-					// Legacy output.
-					$output .= sprintf( '%s<img src="%s" alt="%s">%s',
-						$instance['link_open'],
-						esc_url( $instance['image'] ),
-						( empty( $instance['alt'] ) ) ? '' : esc_attr( $instance['alt'] ),
-						$instance['link_close']
-					);
-				}
-
-				// Add the text.
-				if ( ! empty( $instance['text'] ) ) {
-					$output .= apply_filters( 'the_content', $instance['text'] );
-				}
-
-				// Add a more link.
-				if ( ! empty( $instance['link_open'] ) && ! empty( $instance['link_text'] ) ) {
-					$output .= '<p class="more">' . $instance['link_open'] . $instance['link_text'] . $instance['link_close'] . '</p>';
-				}
+				$template_loader = new Simple_Image_Widget_Template_Loader();
+				$template = $template_loader->locate_template( $templates );
+				$template_loader->load_template( $template, $data );
+				$output .= ob_get_clean();
 			}
 
 		$output .= $args['after_widget'];
@@ -145,11 +167,13 @@ class Simple_Image_Widget extends WP_Widget {
 	}
 
 	/**
-	 * Form for modifying widget settings.
+	 * Display the form to edit widget settings.
 	 *
 	 * @since 3.0.0
+	 *
+	 * @param array $instance The widget settings.
 	 */
-	function form( $instance ) {
+	public function form( $instance ) {
 		$instance = wp_parse_args( (array) $instance, array(
 			'alt'        => '', // Legacy.
 			'image'      => '', // Legacy URL field.
@@ -168,13 +192,34 @@ class Simple_Image_Widget extends WP_Widget {
 		$button_class = array( 'button', 'button-hero', 'simple-image-widget-control-choose' );
 		$image_id = $instance['image_id'];
 
-		// The order of fields can be modified, new fields can be registered, or existing fields can be removed here.
+		/**
+		 * The list of fields to display.
+		 *
+		 * The order of fields can be modified, new fields can be registered, or
+		 * existing fields can be removed here. Use the widget type id to limit
+		 * fields to a particular type of widget.
+		 *
+		 * @since 3.0.0
+		 *
+		 * @param array  $fields  List of field ids.
+		 * @param string $id_base Widget type id.
+		 */
 		$fields = (array) apply_filters( 'simple_image_widget_fields', $this->form_fields(), $this->id_base );
 		?>
 
 		<div class="simple-image-widget-form">
 
-			<?php do_action( 'simple_image_widget_form_before', $instance, $this->id_base ); ?>
+			<?php
+			/**
+			 * Display additional information or HTML before the widget edit form.
+			 *
+			 * @since 3.0.0
+			 *
+			 * @param array  $instance The widget setttings.
+			 * @param string $id_base  Widget type id.
+			 */
+			do_action( 'simple_image_widget_form_before', $instance, $this->id_base );
+			?>
 
 			<p>
 				<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'simple-image-widget' ); ?></label>
@@ -183,7 +228,7 @@ class Simple_Image_Widget extends WP_Widget {
 
 			<?php if ( ! is_simple_image_widget_legacy() ) : ?>
 				<p class="simple-image-widget-control<?php echo ( $image_id ) ? ' has-image' : ''; ?>"
-					data-title="<?php esc_attr_e( 'Choose an Image for the Widget', 'simple-image-widget' ); ?>"
+					data-title="<?php esc_attr_e( 'Choose an Image', 'simple-image-widget' ); ?>"
 					data-update-text="<?php esc_attr_e( 'Update Image', 'simple-image-widget' ); ?>"
 					data-target=".image-id">
 					<?php
@@ -195,28 +240,6 @@ class Simple_Image_Widget extends WP_Widget {
 					<input type="hidden" name="<?php echo $this->get_field_name( 'image_id' ); ?>" id="<?php echo $this->get_field_id( 'image_id' ); ?>" value="<?php echo $image_id; ?>" class="image-id simple-image-widget-control-target">
 					<a href="#" class="<?php echo join( ' ', $button_class ); ?>"><?php _e( 'Choose an Image', 'simple-image-widget' ); ?></a>
 				</p>
-			<?php endif; ?>
-
-			<?php if ( is_simple_image_widget_legacy() || ! empty( $instance['image'] ) ) : ?>
-				<div class="simple-image-widget-legacy-fields">
-					<?php if ( ! is_simple_image_widget_legacy() ) : ?>
-						<p>
-							<em><?php _e( 'These fields are here to maintain your data from an earlier version.', 'simple-image-widget' ); ?></em>
-						</p>
-						<p>
-							<em><?php _e( 'Select an image, then clear these values, and they will disappear when you save the widget.', 'simple-image-widget' ); ?></em>
-						</p>
-					<?php endif; ?>
-
-					<p>
-						<label for="<?php echo $this->get_field_id( 'image' ); ?>"><?php _e( 'Image URL:', 'simple-image-widget' ); ?></label>
-						<input type="text" name="<?php echo $this->get_field_name( 'image' ); ?>" id="<?php echo $this->get_field_id( 'image' ); ?>" value="<?php echo esc_url( $instance['image'] ); ?>" class="widefat">
-					</p>
-					<p>
-						<label for="<?php echo $this->get_field_id( 'alt' ); ?>"><?php _e( 'Alternate Text:', 'simple-image-widget' ); ?></label>
-						<input type="text" name="<?php echo $this->get_field_name( 'alt' ); ?>" id="<?php echo $this->get_field_id( 'alt' ); ?>" value="<?php echo esc_attr( $instance['alt'] ); ?>" class="widefat">
-					</p>
-				</div>
 			<?php endif; ?>
 
 			<?php
@@ -277,12 +300,31 @@ class Simple_Image_Widget extends WP_Widget {
 							break;
 
 						default :
-							// Custom fields can be added using this action.
+							/**
+							 * Display a custom field.
+							 *
+							 * This action will fire for custom fields
+							 * registered with the 'simple_image_widget_fields'
+							 * filter.
+							 *
+							 * @since 3.0.0
+							 *
+							 * @param array  $instance The widget setttings.
+							 * @param string $widget   Widget instance.
+							 */
 							do_action( 'simple_image_widget_field-' . sanitize_key( $field ), $instance, $this );
 					}
 				}
 			}
 
+			/**
+			 * Display additional information or HTML after the widget edit form.
+			 *
+			 * @since 3.0.0
+			 *
+			 * @param array  $instance The widget setttings.
+			 * @param string $id_base  Widget type id.
+			 */
 			do_action( 'simple_image_widget_form_after', $instance, $this->id_base );
 			?>
 
@@ -296,24 +338,23 @@ class Simple_Image_Widget extends WP_Widget {
 	 * Can be easily overloaded by a child class.
 	 *
 	 * @since 3.0.0
+	 *
+	 * @return string List of field ids.
 	 */
-	function form_fields() {
-		$fields = array( 'link', 'link_text', 'text' );
-
-		// Don't show the image size field for users with older WordPress versions.
-		if ( ! is_simple_image_widget_legacy() ) {
-			array_unshift( $fields, 'image_size' );
-		}
-
-		return $fields;
+	public function form_fields() {
+		return array( 'image_size', 'link', 'link_text', 'text' );
 	}
 
 	/**
-	 * Save widget settings.
+	 * Save and sanitize widget settings.
 	 *
 	 * @since 3.0.0
+	 *
+	 * @param array  $new_instance New widget settings.
+	 * @param array  $old_instance Previous widget settings.
+	 * @return array Sanitized settings.
 	 */
-	function update( $new_instance, $old_instance ) {
+	public function update( $new_instance, $old_instance ) {
 		$instance = wp_parse_args( $new_instance, $old_instance );
 
 		$instance = apply_filters( 'simple_image_widget_instance', $instance, $new_instance, $old_instance, $this->id_base );
@@ -325,16 +366,6 @@ class Simple_Image_Widget extends WP_Widget {
 		$instance['new_window'] = isset( $new_instance['new_window'] );
 		$instance['text'] = wp_kses_data( $new_instance['text'] );
 
-		$instance['image'] = esc_url_raw( $new_instance['image'] ); // Legacy image URL.
-		if ( empty( $instance['image'] ) ) {
-			unset( $instance['image'] );
-		}
-
-		$instance['alt'] = wp_strip_all_tags( $instance['alt'] ); // Legacy alt text.
-		if ( empty( $instance['alt'] ) ) {
-			unset( $instance['alt'] );
-		}
-
 		$this->flush_widget_cache();
 
 		return $instance;
@@ -345,15 +376,15 @@ class Simple_Image_Widget extends WP_Widget {
 	 *
 	 * @since 3.0.0
 	 *
-	 * @param int $image_id Image attachment ID.
+	 * @param  int   $image_id Image attachment ID.
 	 * @return array List of image size keys and their localized labels.
 	 */
-	function get_image_sizes( $image_id ) {
+	public function get_image_sizes( $image_id ) {
 		$sizes = array( 'full' => __( 'Full Size', 'simple-image-widget' ) );
 
 		$imagedata = wp_get_attachment_metadata( $image_id );
 		if ( isset( $imagedata['sizes'] ) ) {
-			$size_names = Simple_Image_Widget_Loader::get_image_size_names();
+			$size_names = Simple_Image_Widget_Plugin::get_image_size_names();
 
 			$sizes['full'] .= ( isset( $imagedata['width'] ) && isset( $imagedata['height'] ) ) ? sprintf( ' (%d&times;%d)', $imagedata['width'], $imagedata['height'] ) : '';
 
@@ -373,7 +404,7 @@ class Simple_Image_Widget extends WP_Widget {
 	 *
 	 * @since 3.0.0
 	 */
-	function flush_widget_cache() {
+	public function flush_widget_cache() {
 		$cache = (array) wp_cache_get( 'simple_image_widget', 'widget' );
 
 		if ( isset( $cache[ $this->id ] ) ) {
@@ -387,12 +418,48 @@ class Simple_Image_Widget extends WP_Widget {
 	 * Flush the cache for all image widgets.
 	 *
 	 * @since 3.0.0
+	 *
+	 * @param int $post_id Post ID.
 	 */
-	function flush_group_cache( $post_id = null ) {
+	public function flush_group_cache( $post_id = null ) {
 		if ( 'save_post' == current_filter() && 'attachment' != get_post_type( $post_id ) ) {
 			return;
 		}
 
 		wp_cache_delete( 'simple_image_widget', 'widget' );
+	}
+
+	/**
+	 * Retrieve a list of templates to look up.
+	 *
+	 * @since 4.0.0
+	 *
+	 * @param array  $args     Registered sidebar arguments including before_title, after_title, before_widget, and after_widget.
+	 * @param array  $instance The widget instance settings.
+	 * @return array List of template names.
+	 */
+	protected function get_template_names( $args, $instance ) {
+		/**
+		 * List of template names to look up to render output.
+		 *
+		 * Child widgets should consider adding a new template using the widget type id ($this->id_base).
+		 *
+		 * @since 4.0.0
+		 *
+		 * @param array  $templates List of template names.
+		 * @param array  $args     Registered sidebar arguments including before_title, after_title, before_widget, and after_widget.
+		 * @param array  $instance The widget instance settings.
+		 * @param string $id_base  Widget type id.
+		 */
+		return apply_filters(
+			'simple_image_widget_templates',
+			array(
+				"{$args['id']}_widget.php",
+				"widget.php"
+			),
+			$args,
+			$instance,
+			$this->id_base
+		);
 	}
 }

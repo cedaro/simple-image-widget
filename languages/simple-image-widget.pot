@@ -1,103 +1,101 @@
-# Copyright (C) 2013 Simple Image Widget
+# Copyright (C) 2014 Simple Image Widget
 # This file is distributed under the same license as the Simple Image Widget package.
 msgid ""
 msgstr ""
 "Project-Id-Version: Simple Image Widget 3.0.4\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/simple-image-"
-"widget\n"
-"POT-Creation-Date: 2013-10-26 20:24:57+00:00\n"
+"Report-Msgid-Bugs-To: "
+"http://wordpress.org/support/plugin/simple-image-widget\n"
+"POT-Creation-Date: 2014-03-14 05:54:01+00:00\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2013-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: class-simple-image-widget.php:20
-msgid "Image"
-msgstr ""
-
-#: class-simple-image-widget.php:24
-msgid "Display an image"
-msgstr ""
-
-#: class-simple-image-widget.php:180
-msgid "Title:"
-msgstr ""
-
-#: class-simple-image-widget.php:186
-msgid "Choose an Image for the Widget"
-msgstr ""
-
-#: class-simple-image-widget.php:187
-msgid "Update Image"
-msgstr ""
-
-#: class-simple-image-widget.php:196
-msgid "Choose an Image"
-msgstr ""
-
-#: class-simple-image-widget.php:204
+#: includes/class-simple-image-widget-legacy.php:107
 msgid "These fields are here to maintain your data from an earlier version."
 msgstr ""
 
-#: class-simple-image-widget.php:207
+#: includes/class-simple-image-widget-legacy.php:110
 msgid ""
 "Select an image, then clear these values, and they will disappear when you "
 "save the widget."
 msgstr ""
 
-#: class-simple-image-widget.php:212
+#: includes/class-simple-image-widget-legacy.php:115
 msgid "Image URL:"
 msgstr ""
 
-#: class-simple-image-widget.php:216
+#: includes/class-simple-image-widget-legacy.php:119
 msgid "Alternate Text:"
 msgstr ""
 
-#: class-simple-image-widget.php:230
-msgid "Size:"
-msgstr ""
-
-#: class-simple-image-widget.php:249
-msgid "Link:"
-msgstr ""
-
-#: class-simple-image-widget.php:255
-msgid "Open in new window?"
-msgstr ""
-
-#: class-simple-image-widget.php:264
-msgid "Link Text:"
-msgstr ""
-
-#: class-simple-image-widget.php:273
-msgid "Text:"
-msgstr ""
-
-#: class-simple-image-widget.php:352 simple-image-widget.php:79
-#: simple-image-widget.php:180
-msgid "Full Size"
-msgstr ""
-
-#: simple-image-widget.php:77
+#: includes/class-simple-image-widget-plugin.php:82
 msgid "Choose an Attachment"
 msgstr ""
 
-#: simple-image-widget.php:78
+#: includes/class-simple-image-widget-plugin.php:83
 msgid "Update Attachment"
 msgstr ""
 
-#: simple-image-widget.php:177
+#: includes/class-simple-image-widget-plugin.php:84
+#: includes/class-simple-image-widget-plugin.php:124
+#: includes/class-simple-image-widget.php:383
+msgid "Full Size"
+msgstr ""
+
+#: includes/class-simple-image-widget-plugin.php:121
 msgid "Thumbnail"
 msgstr ""
 
-#: simple-image-widget.php:178
+#: includes/class-simple-image-widget-plugin.php:122
 msgid "Medium"
 msgstr ""
 
-#: simple-image-widget.php:179
+#: includes/class-simple-image-widget-plugin.php:123
 msgid "Large"
+msgstr ""
+
+#: includes/class-simple-image-widget.php:43
+msgid "Image"
+msgstr ""
+
+#: includes/class-simple-image-widget.php:47
+msgid "Display an image"
+msgstr ""
+
+#: includes/class-simple-image-widget.php:225
+msgid "Title:"
+msgstr ""
+
+#: includes/class-simple-image-widget.php:231
+#: includes/class-simple-image-widget.php:241
+msgid "Choose an Image"
+msgstr ""
+
+#: includes/class-simple-image-widget.php:232
+msgid "Update Image"
+msgstr ""
+
+#: includes/class-simple-image-widget.php:253
+msgid "Size:"
+msgstr ""
+
+#: includes/class-simple-image-widget.php:272
+msgid "Link:"
+msgstr ""
+
+#: includes/class-simple-image-widget.php:278
+msgid "Open in new window?"
+msgstr ""
+
+#: includes/class-simple-image-widget.php:287
+msgid "Link Text:"
+msgstr ""
+
+#: includes/class-simple-image-widget.php:296
+msgid "Text:"
 msgstr ""
 
 #. Plugin Name of the plugin/theme

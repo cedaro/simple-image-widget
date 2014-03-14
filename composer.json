@@ -1,0 +1,22 @@
+{
+	"name": "blazersix/simple-image-widget",
+	"description": "A simple WordPress image widget.",
+	"keywords": ["wordpress"],
+	"type": "wordpress-plugin",
+	"homepage": "https://github.com/blazersix/simple-image-widget",
+	"license": "GPL-2.0+",
+	"authors": [
+		{
+			"name": "Brady Vercher",
+			"email": "brady@blazersix.com",
+			"homepage": "http://www.blazersix.com/"
+		}
+	],
+	"support": {
+		"issues": "https://github.com/blazersix/simple-image-widget/issues",
+		"source": "https://github.com/blazersix/simple-image-widget"
+	},
+	"require": {
+		"composer/installers": "~1.0"
+	}
+}

@@ -1,0 +1,29 @@
+.widget .widget-inside .simple-image-widget-form .simple-image-widget-control {
+	border: 1px dashed #aaa;
+	padding: 20px 0;
+	text-align: center;
+}
+
+.widget .widget-inside .simple-image-widget-form .simple-image-widget-control.has-image {
+	border: 1px dashed #aaa;
+	padding: 10px;
+	text-align: left;
+}
+
+.widget .widget-inside .simple-image-widget-form .simple-image-widget-control img {
+	display: block;
+	height: auto;
+	margin-bottom: 10px;
+	max-width: 100%;
+}
+
+.simple-image-widget-legacy-fields {
+	margin-bottom: 1em;
+	padding: 10px;
+	background-color: #e0e0e0;
+	border-radius: 3px;
+}
+
+.simple-image-widget-legacy-fields p:last-child {
+	margin-bottom: 0;
+}
