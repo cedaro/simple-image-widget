@@ -95,6 +95,8 @@ class Simple_Image_Widget_Plugin {
 	 * Enqueue scripts needed for selecting media.
 	 *
 	 * @since 3.0.0
+	 *
+	 * @param string $hook_suffix Screen id.
 	 */
 	public function enqueue_admin_assets( $hook_suffix ) {
 		if ( 'widgets.php' == $hook_suffix ) {
