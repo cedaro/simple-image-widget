@@ -99,7 +99,7 @@ class Simple_Image_Widget_Legacy {
 	 * @param array     $instance The widget instance settings.
 	 * @param WP_Widget $widget   Widget instance.
 	 */
-	public function dispaly_fields( $instance, $widget ) {
+	public function display_fields( $instance, $widget ) {
 		if ( is_simple_image_widget_legacy() || ! empty( $instance['image'] ) ) :
 			?>
 			<div class="simple-image-widget-legacy-fields">
