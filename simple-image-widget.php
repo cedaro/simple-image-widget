@@ -22,7 +22,7 @@
 
 if ( ! defined( 'SIW_DIR' ) ) {
 	/**
-	 * Path directory path.
+	 * Plugin directory path.
 	 *
 	 * @since 4.0.0
 	 * @type string SIW_DIR
