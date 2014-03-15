@@ -154,7 +154,7 @@ class Simple_Image_Widget extends WP_Widget {
 			$data['after_title'] = $args['after_title'];
 			$data['before_title'] = $args['before_title'];
 			$data['image_size'] = $image_size = ( ! empty( $instance['image_size'] ) ) ? $instance['image_size'] : apply_filters( 'simple_image_widget_output_default_size', 'medium', $this->id_base );
-			$data['title'] = ( empty( $instance['title'] ) ) ? '' : $args['before_title'] . $instance['title'] . $args['after_title'];
+			$data['title'] = ( empty( $instance['title'] ) ) ? '' : $instance['title'];
 			$data = array_merge( $instance, $data );
 
 			ob_start();
