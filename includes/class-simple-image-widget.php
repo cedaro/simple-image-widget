@@ -448,6 +448,11 @@ class Simple_Image_Widget extends WP_Widget {
 	 * @return array List of template names.
 	 */
 	protected function get_template_names( $args, $instance ) {
+		$templates = array();
+		if ( ! empty( $args['id'] ) ) {
+			$templates[] = $args['id'] . '_widget.php';
+		}
+		$templates[] = 'widget.php';
 		/**
 		 * List of template names to look up to render output.
 		 *
@@ -462,10 +467,7 @@ class Simple_Image_Widget extends WP_Widget {
 		 */
 		return apply_filters(
 			'simple_image_widget_templates',
-			array(
-				"{$args['id']}_widget.php",
-				"widget.php",
-			),
+			$templates,
 			$args,
 			$instance,
 			$this->id_base
