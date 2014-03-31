@@ -20,6 +20,14 @@
  * Domain Path: /languages
  */
 
+/**
+ * Main plugin instance.
+ *
+ * @since 4.0.0
+ * @type Simple_Image_Widget $simple_image_widget
+ */
+global $simple_image_widget;
+
 if ( ! defined( 'SIW_DIR' ) ) {
 	/**
 	 * Plugin directory path.
