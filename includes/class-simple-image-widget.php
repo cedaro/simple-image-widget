@@ -228,12 +228,12 @@ class Simple_Image_Widget extends WP_Widget {
 			 */
 			do_action( 'simple_image_widget_form_before', $instance, $this->id_base );
 			?>
-	
+
 			<p>
 				<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php _e( 'Title:', 'simple-image-widget' ); ?></label>
 				<input type="text" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" value="<?php echo esc_attr( $instance['title'] ); ?>" class="widefat">
 			</p>
-	
+
 			<?php if ( ! is_simple_image_widget_legacy() ) : ?>
 				<p class="simple-image-widget-control<?php echo ( $image_id ) ? ' has-image' : ''; ?>"
 					data-title="<?php esc_attr_e( 'Choose an Image', 'simple-image-widget' ); ?>"
@@ -249,7 +249,7 @@ class Simple_Image_Widget extends WP_Widget {
 					<a href="#" class="<?php echo esc_attr( join( ' ', $button_class ) ); ?>"><?php _e( 'Choose an Image', 'simple-image-widget' ); ?></a>
 				</p>
 			<?php endif; ?>
-	
+
 			<?php
 			if ( ! empty( $fields ) ) {
 				foreach ( $fields as $field ) {
@@ -274,7 +274,7 @@ class Simple_Image_Widget extends WP_Widget {
 							</p>
 							<?php
 							break;
-	
+
 						case 'link' :
 							?>
 							<p style="margin-bottom: 0.25em">
@@ -289,7 +289,7 @@ class Simple_Image_Widget extends WP_Widget {
 							</p>
 							<?php
 							break;
-	
+
 						case 'link_text' :
 							?>
 							<p>
@@ -298,7 +298,7 @@ class Simple_Image_Widget extends WP_Widget {
 							</p>
 							<?php
 							break;
-	
+
 						case 'text' :
 							?>
 							<p>
@@ -307,7 +307,7 @@ class Simple_Image_Widget extends WP_Widget {
 							</p>
 							<?php
 							break;
-	
+
 						default :
 							/**
 							 * Display a custom field.
@@ -325,7 +325,7 @@ class Simple_Image_Widget extends WP_Widget {
 					}
 				}
 			}
-	
+
 			/**
 			 * Display additional information or HTML after the widget edit form.
 			 *
@@ -381,7 +381,7 @@ class Simple_Image_Widget extends WP_Widget {
 	}
 
 	/**
-	 * Get the various sizes of an images.
+	 * Get the various sizes of an image.
 	 *
 	 * @since 3.0.0
 	 *
