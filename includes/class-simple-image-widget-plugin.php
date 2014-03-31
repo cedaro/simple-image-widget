@@ -98,11 +98,7 @@ class Simple_Image_Widget_Plugin {
 	 *
 	 * @param string $hook_suffix Screen id.
 	 */
-	public function enqueue_admin_assets( $hook_suffix ) {
-		if ( 'widgets.php' == $hook_suffix ) {
-			wp_enqueue_media();
-		}
-
+	public function enqueue_admin_assets() {
 		wp_enqueue_media();
 		wp_enqueue_script( 'simple-image-widget-admin' );
 		wp_enqueue_style( 'simple-image-widget-admin' );
