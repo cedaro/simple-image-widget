@@ -44,7 +44,14 @@ if ( ! defined( 'SIW_DIR' ) ) {
  * @since 3.0.0
  */
 function is_simple_image_widget_legacy() {
-	return version_compare( get_bloginfo( 'version' ), '3.4.2', '<=' );
+	/**
+	 * Whether the installed version of WordPress supports the new media manager.
+	 *
+	 * @since 4.0.0
+	 *
+	 * @param bool $is_legacy
+	 */
+	return apply_filters( 'is_simple_image_widget_legacy', version_compare( get_bloginfo( 'version' ), '3.4.2', '<=' ) );
 }
 
 /**
