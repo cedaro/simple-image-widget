@@ -2,7 +2,7 @@
 /**
  * Default widget template.
  *
- * Copy this template to /simple-image-widget/widget.php within your theme or
+ * Copy this template to /simple-image-widget/widget.php in your theme or
  * child theme to make edits.
  *
  * @package   SimpleImageWidget

@@ -156,6 +156,7 @@ class Simple_Image_Widget extends WP_Widget {
 			$data['image_size'] = $image_size = ( ! empty( $instance['image_size'] ) ) ? $instance['image_size'] : apply_filters( 'simple_image_widget_output_default_size', 'medium', $this->id_base );
 			$data['title'] = ( empty( $instance['title'] ) ) ? '' : $instance['title'];
 			$data = array_merge( $instance, $data );
+			$data = apply_filters( 'simple_image_widget_template_data', $data );
 
 			ob_start();
 			$templates = $this->get_template_names( $args, $instance );
