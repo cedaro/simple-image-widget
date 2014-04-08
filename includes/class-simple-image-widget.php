@@ -45,8 +45,9 @@ class Simple_Image_Widget extends WP_Widget {
 		$widget_options = wp_parse_args(
 			$widget_options,
 			array(
-				'classname'   => 'widget_simpleimage', // Legacy class name.
-				'description' => __( 'Display an image', 'simple-image-widget' ),
+				'classname'          => 'widget_simpleimage', // Legacy class name.
+				'description'        => __( 'An image from your Media Library.', 'simple-image-widget' ),
+				'customizer_support' => true,
 			)
 		);
 
