@@ -51,7 +51,7 @@ module.exports = function( grunt ) {
 			args: [
 				'--source=.',
 				'--destination=docs',
-				'--exclude=*/.git*,*/docs/*,*/node_modules/*',
+				'--exclude=*/.git*,*/docs/*,*/node_modules/*,*/tests/*',
 				'--title=Simple Image Widget Documentation',
 				'--main=SimpleImageWdiget',
 				'--report=docs/_report.xml'
@@ -75,7 +75,7 @@ module.exports = function( grunt ) {
 				'-s',
 				'--standard=WordPress',
 				'--extensions=php',
-				'--ignore=*/node_modules/*',
+				'--ignore=*/node_modules/*,*/tests/*',
 				'--report-file=codesniffs.txt',
 				'.'
 			],
