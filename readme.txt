@@ -2,20 +2,20 @@
 Contributors: blazersix, bradyvercher
 Tags: image widget, widget, media, media manager, sidebar, image, photo, picture
 Requires at least: 3.3
-Tested up to: 3.8.1
+Tested up to: 3.9
 Stable tag: trunk
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-A simple image widget that makes it a breeze to add images to your sidebars.
+A simple widget that makes it a breeze to add images to your sidebars.
 
 == Description ==
 
-Simple Image Widget is what the name implies -- the easiest way to add images to your sidebars. Display advertisements, calls-to-action, or even build a slider based on image widgets. 
+Simple Image Widget is what the name implies -- the easiest way to add images to your sidebars. Display advertisements, calls-to-action, or even build a slider based on image widgets.
 
-Despite the simplicity, it's been built with extensibility in mind to make it super easy to spin off new image-based widgets with completely different fields. The plugin also includes a basic template hierarchy to load custom templates from a theme or child theme.
+Despite its simplicity, Simple Image Widget is built with extensibility in mind, making it super easy to spin off new image-based widgets, or customize the widget ouput using the available template hierarchy.
 
-Blazer Six took over development and maintenance of Simple Image Widget with version 3.0, rewriting it from the ground up to take advantage of the media improvements in WordPress 3.5. Read about the original thought behind creating this widget and ways it can be extended in [this blog post](http://www.blazersix.com/blog/wordpress-image-widget/).
+Blazer Six took over development and maintenance of Simple Image Widget with version 3.0, rewriting it from the ground up to take advantage of the media improvements in WordPress 3.5. Read about the original thought behind creating the plugin and ways it can be extended in [Building a Better Image Widget with the New WordPress Media Manager](http://www.blazersix.com/blog/wordpress-image-widget/).
 
 = Additional Resources =
 
@@ -33,7 +33,7 @@ Install just like most other plugins. [Check out the codex](http://codex.wordpre
 
 = Is there a way to filter the widget output? =
 
-Absolutely. Changing the output can be done a few different ways, but the most common involve using the "`simple_image_widget_output`" filter or overriding the template in your theme.
+Absolutely. Changing the output can be done a few different ways, but the most common alternatives involve using the "`simple_image_widget_output`" filter or overriding the template in your theme.
 
 To use the template method, copy "`widget.php`" from the "`/templates`" directory in the plugin to a "`/simple-image-widget`" directory in your theme. Then update as you wish. It's also possible to create a custom template specific to each sidebar in your theme using the following default template hierarchy:
 
@@ -41,7 +41,7 @@ To use the template method, copy "`widget.php`" from the "`/templates`" director
 * `{theme}/simple-image-widget/widget.php`
 * `{plugin}/templates/widget.php`
 
-_Always use a [child theme](https://codex.wordpress.org/Child_Themes) to make changes if you acquired your theme from someone and you expect it to be updated. Otherwise, you run the risk of losing your customizations._
+_Always use a [child theme](https://codex.wordpress.org/Child_Themes) to make changes if you acquired your theme from a third-party and you expect it to be updated. Otherwise, you run the risk of losing your customizations._
 
 = How do I add alt text to images in the widget? =
 
@@ -76,7 +76,7 @@ The widget uses the core function `wp_get_attachment_image()` to display the ima
 * Restructured to make it more intuitive for developers to extend the widget.
 * Moved legacy support into a separate class that hooks into the widget.
 * Works with the Widget Customizer added in WordPress 3.9.
-* Should play nice with plugins like Page Builder by SiteOrigin.
+* Improved compatibility with plugins like Page Builder by SiteOrigin.
 
 = 3.0.4 =
 * Fixed a slash preventing custom translations from loading.

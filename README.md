@@ -1,4 +1,4 @@
-# Simple Image Widget #
+# Simple Image Widget
 
 A simple image widget that makes it a breeze to add images to sidebars in WordPress.
 
@@ -7,15 +7,21 @@ __Requires:__ 3.5
 __Tested up to:__ 3.9  
 __License:__ [GPL-2.0+](http://www.gnu.org/licenses/gpl-2.0.html)
 
-Simple Image Widget is what the name implies -- the easiest way to add images to sidebars in WordPress. It uses the media manager introduced in WordPress 3.5 to seamlessly uploading and selecting images.
+Simple Image Widget is what the name implies -- the easiest way to add images to sidebars in WordPress.
 
-Despite the simplicity, it's been built with extensibility in mind to make it super easy to spin off new image-based widgets with completely different fields. The plugin also includes a basic template hierarchy to load custom templates from a theme or child theme.
+Despite its simplicity, Simple Image Widget is built with extensibility in mind, making it super easy to spin off new image-based widgets, or customize the widget ouput using the available template hierarchy.
 
-## Installation ##
+## Installation
 
 Simple Image Widget is available in the [WordPress plugin repository](http://wordpress.org/plugins/simple-image-widget/), so it can be installed from your admin panel like most other plugins.
 
-## Credits ##
+## Potential Roadmap
+
+* Drag and drop uploading
+* Toggle field display in screen options on the widget screen
+* Allow searching for a post/page/attachment to use as the link
+
+## Credits
 
 Built by [Brady Vercher](http://twitter.com/bradyvercher)  
 Copyright 2014  Blazer Six, Inc.(http://www.blazersix.com/)
