@@ -5,24 +5,24 @@ msgstr ""
 "Project-Id-Version: Simple Image Widget 3.0.4\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/simple-image-"
 "widget\n"
-"POT-Creation-Date: 2014-03-14 05:54:01+00:00\n"
+"POT-Creation-Date: 2014-06-13 21:26:00+00:00\n"
+"PO-Revision-Date: 2014-06-17 14:14+0100\n"
+"Last-Translator: Alexandre Sadowski <hello@alexandresadowski.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2014-06-13 18:03+0100\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: Poedit 1.6.5\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"Language: fr\n"
 
-#: includes/class-simple-image-widget-legacy.php:107
+#: includes/class-simple-image-widget-legacy.php:108
 msgid "These fields are here to maintain your data from an earlier version."
 msgstr ""
 "Ces champs sont là pour maintenir vos données à partir d'une version "
 "antérieure."
 
-#: includes/class-simple-image-widget-legacy.php:110
+#: includes/class-simple-image-widget-legacy.php:111
 msgid ""
 "Select an image, then clear these values, and they will disappear when you "
 "save the widget."
@@ -30,37 +30,37 @@ msgstr ""
 "Sélectionner une image, puis effacer ces valeurs, et elles disparaîtront "
 "lorsque vous enregistrerez le widget."
 
-#: includes/class-simple-image-widget-legacy.php:115
+#: includes/class-simple-image-widget-legacy.php:116
 msgid "Image URL:"
 msgstr "URL de l'image:"
 
-#: includes/class-simple-image-widget-legacy.php:119
+#: includes/class-simple-image-widget-legacy.php:120
 msgid "Alternate Text:"
 msgstr "Texte alternative:"
 
-#: includes/class-simple-image-widget-plugin.php:82
+#: includes/class-simple-image-widget-plugin.php:85
 msgid "Choose an Attachment"
 msgstr "Choisir un fichier"
 
-#: includes/class-simple-image-widget-plugin.php:83
+#: includes/class-simple-image-widget-plugin.php:86
 msgid "Update Attachment"
 msgstr "Mettre à jour le fichier"
 
-#: includes/class-simple-image-widget-plugin.php:84
-#: includes/class-simple-image-widget-plugin.php:124
-#: includes/class-simple-image-widget.php:383
+#: includes/class-simple-image-widget-plugin.php:87
+#: includes/class-simple-image-widget-plugin.php:128
+#: includes/class-simple-image-widget.php:412
 msgid "Full Size"
 msgstr "Taille entière"
 
-#: includes/class-simple-image-widget-plugin.php:121
+#: includes/class-simple-image-widget-plugin.php:125
 msgid "Thumbnail"
 msgstr "Miniature"
 
-#: includes/class-simple-image-widget-plugin.php:122
+#: includes/class-simple-image-widget-plugin.php:126
 msgid "Medium"
 msgstr "Moyenne"
 
-#: includes/class-simple-image-widget-plugin.php:123
+#: includes/class-simple-image-widget-plugin.php:127
 msgid "Large"
 msgstr "Grande taille"
 
@@ -68,40 +68,40 @@ msgstr "Grande taille"
 msgid "Image"
 msgstr "Image"
 
-#: includes/class-simple-image-widget.php:47
-msgid "Display an image"
-msgstr "Afficher une image"
+#: includes/class-simple-image-widget.php:49
+msgid "An image from your Media Library."
+msgstr "Une image de votre bibliothère de médias."
 
-#: includes/class-simple-image-widget.php:225
+#: includes/class-simple-image-widget.php:235
 msgid "Title:"
 msgstr "Titre:"
 
-#: includes/class-simple-image-widget.php:231
 #: includes/class-simple-image-widget.php:241
+#: includes/class-simple-image-widget.php:251
 msgid "Choose an Image"
 msgstr "Sélectionner une image"
 
-#: includes/class-simple-image-widget.php:232
+#: includes/class-simple-image-widget.php:242
 msgid "Update Image"
 msgstr "Mettre à jour l'image"
 
-#: includes/class-simple-image-widget.php:253
+#: includes/class-simple-image-widget.php:263
 msgid "Size:"
 msgstr "Taille:"
 
-#: includes/class-simple-image-widget.php:272
+#: includes/class-simple-image-widget.php:283
 msgid "Link:"
 msgstr "Lien:"
 
-#: includes/class-simple-image-widget.php:278
+#: includes/class-simple-image-widget.php:289
 msgid "Open in new window?"
 msgstr "Ouvrir dans une nouvelle fenêtre?"
 
-#: includes/class-simple-image-widget.php:287
+#: includes/class-simple-image-widget.php:298
 msgid "Link Text:"
 msgstr "Label du lien:"
 
-#: includes/class-simple-image-widget.php:296
+#: includes/class-simple-image-widget.php:307
 msgid "Text:"
 msgstr "Texte:"
 
@@ -126,3 +126,6 @@ msgstr "Blazer Six"
 #. Author URI of the plugin/theme
 msgid "http://www.blazersix.com/"
 msgstr "http://www.blazersix.com/"
+
+#~ msgid "Display an image"
+#~ msgstr "Afficher une image"
