@@ -25,6 +25,10 @@ Blazer Six took over development and maintenance of Simple Image Widget with ver
 * [Follow @bradyvercher](https://twitter.com/bradyvercher)
 * [Hire Blazer Six](http://www.blazersix.com/)
 
+= Translation Credits =
+
+* French (fr_FR) - Alexandre Sadowski [v4.0.1]
+
 == Installation ==
 
 Install just like most other plugins. [Check out the codex](http://codex.wordpress.org/Managing_Plugins#Installing_Plugins) if you have any questions.
@@ -70,6 +74,11 @@ The widget uses the core function `wp_get_attachment_image()` to display the ima
 2. The widget after selecting an image.
 
 == Changelog ==
+
+= 4.0.1 =
+* Allow more HTML tags in the text field.
+* Updated customizer support and prevent cache poisoning.
+* Added French translation.
 
 = 4.0.0 =
 * New template system to make it easier to override the output.
