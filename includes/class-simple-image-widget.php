@@ -375,7 +375,7 @@ class Simple_Image_Widget extends WP_Widget {
 		$instance['link']       = esc_url_raw( $new_instance['link'] );
 		$instance['link_text']  = wp_kses_data( $new_instance['link_text'] );
 		$instance['new_window'] = isset( $new_instance['new_window'] );
-		$instance['text']       = wp_kses_data( $new_instance['text'] );
+		$instance['text']       = stripslashes( wp_filter_post_kses( addslashes( $new_instance['text'] ) ) );
 
 		$this->flush_widget_cache();
 
@@ -473,6 +473,7 @@ class Simple_Image_Widget extends WP_Widget {
 			$templates[] = $args['id'] . '_widget.php';
 		}
 		$templates[] = 'widget.php';
+
 		/**
 		 * List of template names to look up to render output.
 		 *
