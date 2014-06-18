@@ -75,6 +75,9 @@ The widget uses the core function `wp_get_attachment_image()` to display the ima
 
 == Changelog ==
 
+= 4.0.2 =
+* Fixed the reference to the widget's parent class to prevent an error.
+
 = 4.0.1 =
 * Allow more HTML tags in the text field.
 * Updated customizer support and prevent cache poisoning.
