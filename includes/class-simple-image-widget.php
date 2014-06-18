@@ -393,7 +393,7 @@ class Simple_Image_Widget extends WP_Widget {
 	public function is_preview() {
 		global $wp_customize;
 
-		if ( method_exists( parent, 'is_preview' ) ) {
+		if ( method_exists( get_parent_class( $this ), 'is_preview' ) ) {
 			return parent::is_preview();
 		}
 
