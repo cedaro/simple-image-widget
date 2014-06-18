@@ -2,7 +2,7 @@
 # This file is distributed under the GPL-2.0+.
 msgid ""
 msgstr ""
-"Project-Id-Version: Simple Image Widget 4.0.1\n"
+"Project-Id-Version: Simple Image Widget 4.0.2\n"
 "Report-Msgid-Bugs-To: "
 "http://wordpress.org/support/plugin/simple-image-widget\n"
 "POT-Creation-Date: 2014-06-13 21:26:00+00:00\n"
