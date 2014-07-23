@@ -259,7 +259,7 @@ class Simple_Image_Widget extends WP_Widget {
 						case 'image_size' :
 							$sizes = $this->get_image_sizes( $image_id );
 							?>
-							<p>
+							<p class="<?php echo esc_attr( $this->siw_field_class( 'image_size' ) ); ?>">
 								<label for="<?php echo esc_attr( $this->get_field_id( 'image_size' ) ); ?>"><?php _e( 'Size:', 'simple-image-widget' ); ?></label>
 								<select name="<?php echo esc_attr( $this->get_field_name( 'image_size' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'image_size' ) ); ?>" class="widefat image-size"<?php echo ( sizeof( $sizes ) < 2 ) ? ' disabled="disabled"' : ''; ?>>
 									<?php
@@ -279,11 +279,11 @@ class Simple_Image_Widget extends WP_Widget {
 
 						case 'link' :
 							?>
-							<p style="margin-bottom: 0.25em">
+							<p class="<?php echo esc_attr( $this->siw_field_class( 'link' ) ); ?>">
 								<label for="<?php echo esc_attr( $this->get_field_id( 'link' ) ); ?>"><?php _e( 'Link:', 'simple-image-widget' ); ?></label>
 								<input type="text" name="<?php echo esc_attr( $this->get_field_name( 'link' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'link' ) ); ?>" value="<?php echo esc_url( $instance['link'] ); ?>" class="widefat">
 							</p>
-							<p style="padding-left: 2px">
+							<p class="<?php echo esc_attr( $this->siw_field_class( 'new_window' ) ); ?>" style="margin-top: -0.75em; padding-left: 2px">
 								<label for="<?php echo esc_attr( $this->get_field_id( 'new_window' ) ); ?>">
 									<input type="checkbox" name="<?php echo esc_attr( $this->get_field_name( 'new_window' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'new_window' ) ); ?>" <?php checked( $instance['new_window'] ); ?>>
 									<?php _e( 'Open in new window?', 'simple-image-widget' ); ?>
@@ -294,7 +294,7 @@ class Simple_Image_Widget extends WP_Widget {
 
 						case 'link_text' :
 							?>
-							<p>
+							<p class="<?php echo esc_attr( $this->siw_field_class( 'link_text' ) ); ?>">
 								<label for="<?php echo esc_attr( $this->get_field_id( 'link_text' ) ); ?>"><?php _e( 'Link Text:', 'simple-image-widget' ); ?></label>
 								<input type="text" name="<?php echo esc_attr( $this->get_field_name( 'link_text' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'link_text' ) ); ?>" value="<?php echo esc_attr( $instance['link_text'] ); ?>" class="widefat">
 							</p>
@@ -303,7 +303,7 @@ class Simple_Image_Widget extends WP_Widget {
 
 						case 'text' :
 							?>
-							<p>
+							<p class="<?php echo esc_attr( $this->siw_field_class( 'text' ) ); ?>">
 								<label for="<?php echo esc_attr( $this->get_field_id( 'text' ) ); ?>"><?php _e( 'Text:', 'simple-image-widget' ); ?></label>
 								<textarea name="<?php echo esc_attr( $this->get_field_name( 'text' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'text' ) ); ?>" rows="4" class="widefat"><?php echo esc_textarea( $instance['text'] ); ?></textarea>
 							</p>
@@ -509,5 +509,24 @@ class Simple_Image_Widget extends WP_Widget {
 			$instance,
 			$this->id_base
 		);
+	}
+
+	/**
+	 * Retrieve HTML classes for a field container.
+	 *
+	 * @since 4.1.0
+	 *
+	 * @param string $id Field id.
+	 * @return string
+	 */
+	protected function siw_field_class( $id ) {
+		$classes = array( 'simple-image-widget-field', 'simple-image-widget-field-' . sanitize_html_class( $id ) );
+
+		$hidden_fields = Simple_Image_Widget_Plugin::get_hidden_fields();
+		if ( in_array( $id, $hidden_fields ) ) {
+			$classes[] = 'is-hidden';
+		}
+
+		return implode( ' ', $classes );
 	}
 }

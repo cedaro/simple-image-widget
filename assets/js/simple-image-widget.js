@@ -202,5 +202,29 @@ window.SimpleImageWidget = window.SimpleImageWidget || {};
 				.addClass( 'has-image' )
 				.find( 'a.simple-image-widget-control-choose' ).removeClass( 'button-hero' );
 		});
+
+		// Wire up the toggle checkboxes in the screen options tab.
+		$( '.simple-image-widget-field-toggle' ).on( 'click', function() {
+			var $this = $( this ),
+				field = $this.val(),
+				$hiddenFields = $( '.simple-image-widget-field-toggle:not(:checked)' );
+
+			$( '.simple-image-widget-field-' + field ).toggleClass( 'is-hidden', ! $this.prop( 'checked' ) );
+
+			$.ajax({
+				url: ajaxurl,
+				type: 'POST',
+				data: {
+					action: 'simple_image_widget_preferences',
+					hidden: $hiddenFields.map(function() { return this.value; }).get().join( ',' ),
+					nonce: SimpleImageWidget.screenOptionsNonce
+				},
+				success: function( data ) {
+					if ( 'nonce' in data ) {
+						SimpleImageWidget.screenOptionsNonce = data.nonce;
+					}
+				}
+			});
+		});
 	});
 })( this, jQuery, _, wp );

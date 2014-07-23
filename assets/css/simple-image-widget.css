@@ -1,3 +1,7 @@
+.widget .widget-inside .simple-image-widget-form .simple-image-widget-field.is-hidden {
+	display: none;
+}
+
 .widget .widget-inside .simple-image-widget-form .simple-image-widget-control {
 	border: 1px dashed #aaa;
 	padding: 20px 0;

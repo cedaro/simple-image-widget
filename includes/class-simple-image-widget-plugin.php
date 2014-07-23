@@ -33,6 +33,8 @@ class Simple_Image_Widget_Plugin {
 
 		add_action( 'init', array( $this, 'register_assets' ) );
 		add_action( 'sidebar_admin_setup', array( $this, 'enqueue_admin_assets' ) );
+		add_filter( 'screen_settings', array( $this, 'widgets_screen_settings' ), 10, 2 );
+		add_action( 'wp_ajax_simple_image_widget_preferences', array( $this, 'ajax_save_user_preferences' ) );
 	}
 
 	/**
@@ -87,8 +89,56 @@ class Simple_Image_Widget_Plugin {
 					'fullSizeLabel'   => __( 'Full Size', 'simple-image-widget' ),
 					'imageSizeNames'  => self::get_image_size_names(),
 				),
+				'screenOptionsNonce' => wp_create_nonce( 'save-siw-preferences' ),
 			)
 		);
+	}
+
+	/**
+	 * Add checkboxes to the screen options tab on the Widgets screen for
+	 * togglable fields.
+	 *
+	 * @since 4.1.0
+	 *
+	 * @param string    $settings Screen options output.
+	 * @param WP_Screen $screen   Current screen.
+	 * @return string
+	 */
+	public function widgets_screen_settings( $settings, $screen ) {
+		if ( 'widgets' !== $screen->id ) {
+			return $settings;
+		}
+
+		$settings .= sprintf( '<h5>%s</h5>', __( 'Simple Image Widget', 'simple-image-widget' ) );
+
+		$fields = array(
+			'image_size'   => __( 'Image Size', 'simple-image-widget' ),
+			'link'         => __( 'Link', 'simple-image-widget' ),
+			'link_text'    => __( 'Link Text', 'simple-image-widget' ),
+			'new_window'   => __( 'New Window', 'simple-image-widget' ),
+			'text'         => __( 'Text', 'simple-image-widget' ),
+		);
+
+		/**
+		 * List of hideable fields.
+		 *
+		 * @since 4.1.0
+		 *
+		 * @param array $fields List of fields with ids as keys and labels as values.
+		 */
+		$fields = apply_filters( 'simple_image_widget_hideable_fields', $fields );
+		$hidden_fields = $this->get_hidden_fields();
+
+		foreach ( $fields as $id => $label ) {
+			$settings .= sprintf(
+				'<label><input type="checkbox" value="%1$s"%2$s class="simple-image-widget-field-toggle"> %3$s</label>',
+				esc_attr( $id ),
+				checked( in_array( $id, $hidden_fields ), false, false ),
+				esc_html( $label )
+			);
+		}
+
+		return $settings;
 	}
 
 	/**
@@ -128,5 +178,47 @@ class Simple_Image_Widget_Plugin {
 				'full'      => __( 'Full Size', 'simple-image-widget' ),
 			)
 		);
+	}
+
+	/**
+	 * Retrieve a list of hidden fields.
+	 *
+	 * @since 4.1.0
+	 *
+	 * @return array List of field ids.
+	 */
+	public static function get_hidden_fields() {
+		$hidden_fields = get_user_option( 'siw_hidden_fields', get_current_user_id() );
+
+		/**
+		 * List of hidden field ids.
+		 *
+		 * @since 4.1.0
+		 *
+		 * @param array $hidden_fields List of hidden field ids.
+		 */
+		return (array) apply_filters( 'simple_image_widget_hidden_fields', $hidden_fields );
+	}
+
+	/**
+	 * AJAX callback to save the user's hidden fields.
+	 *
+	 * @since 4.1.0
+	 */
+	public function ajax_save_user_preferences() {
+		$nonce_action = 'save-siw-preferences';
+		check_ajax_referer( $nonce_action, 'nonce' );
+		$data = array( 'nonce' => wp_create_nonce( $nonce_action ) );
+
+		if ( ! $user = wp_get_current_user() ) {
+			wp_send_json_error( $data );
+		}
+
+		$hidden = isset( $_POST['hidden'] ) ? explode( ',', $_POST['hidden'] ) : array();
+		if ( is_array( $hidden ) ) {
+			update_user_option( $user->ID, 'siw_hidden_fields', $hidden );
+		}
+
+		wp_send_json_success( $data );
 	}
 }
