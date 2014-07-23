@@ -30,7 +30,7 @@ endif;
 
 <?php
 if ( ! empty( $text ) ) :
-	echo apply_filters( 'the_content', $text );
+	echo wpautop( $text );
 endif;
 ?>
 
