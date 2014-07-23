@@ -28,13 +28,13 @@ class Test_Simple_Image_Widget extends WP_UnitTestCase {
 	 * Tear down the test fixture.
 	 */
 	public function tearDown() {
-		foreach ( $this->_ids as $id ) {
+		foreach ( $this->ids as $id ) {
 			wp_delete_attachment( $id, true );
 		}
 
 		$uploads = wp_upload_dir();
 		foreach ( scandir( $uploads['basedir'] ) as $file ) {
-			_rmdir( $uploads['basedir'] . '/' . $file );
+			$this->rmdir( $uploads['basedir'] . '/' . $file );
 		}
 
 		parent::tearDown();
@@ -67,7 +67,6 @@ class Test_Simple_Image_Widget extends WP_UnitTestCase {
 </aside>
 HTML;
 
-		$upload = wp_upload_dir();
 		$expected = str_replace( '{{image}}', wp_get_attachment_image( $id, 'thumbnail' ), $expected );
 
 		$args = array(
@@ -95,7 +94,7 @@ HTML;
 	}
 
 	public function test_widget_output_without_image() {
-				$expected = <<<HTML
+		$expected = <<<HTML
 <aside id="%1\$s" class="widget %2\$s">
 
 
@@ -111,7 +110,7 @@ HTML;
 		);
 
 		$instance = array(
-			'image_id'   => $id,
+			'image_id'   => '',
 			'image_size' => 'thumbnail',
 			'link'       => '',
 			'link_text'  => '',
@@ -171,6 +170,9 @@ HTML;
 		$this->assertEquals( '</a>', $widget->test_instance['link_close'] );
 	}
 
+	/**
+	 *
+	 */
 	public function test_widget_update() {
 		global $wp_widget_factory;
 
@@ -203,8 +205,17 @@ HTML;
 	public function test_widget_templates() {
 		global $wp_widget_factory;
 
-		$args = array();
-		$instance = array();
+		$args = array(
+			'before_widget' => '',
+			'after_widget'  => '',
+			'before_title'  => '',
+			'after_title'   => '',
+		);
+
+		$instance = array(
+			'title'      => '',
+			'text'       => '',
+		);
 
 		ob_start();
 		$widget = $wp_widget_factory->widgets['Simple_Image_Widget_Test'];

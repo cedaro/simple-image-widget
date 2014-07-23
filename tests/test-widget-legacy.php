@@ -24,19 +24,22 @@ class Test_Simple_Image_Widget_Legacy extends WP_UnitTestCase {
 
 		require_once( SIW_DIR_TESTDATA . '/../includes/class-simple-image-widget-test.php' );
 		register_widget( 'Simple_Image_Widget_Test' );
+
+		$compat = new Simple_Image_Widget_Legacy();
+		$compat->load();
 	}
 
 	/**
 	 * Tear down the test fixture.
 	 */
 	public function tearDown() {
-		foreach ( $this->_ids as $id ) {
+		foreach ( $this->ids as $id ) {
 			wp_delete_attachment( $id, true );
 		}
 
 		$uploads = wp_upload_dir();
 		foreach ( scandir( $uploads['basedir'] ) as $file ) {
-			_rmdir( $uploads['basedir'] . '/' . $file );
+			$this->rmdir( $uploads['basedir'] . '/' . $file );
 		}
 
 		parent::tearDown();
@@ -67,6 +70,8 @@ HTML;
 
 		$instance = array(
 			'image'      => wp_get_attachment_url( $id ),
+			'text'       => '',
+			'title'      => '',
 		);
 
 		ob_start();
