@@ -13,8 +13,8 @@ module.exports = function( grunt ) {
 			},
 			plugin: [
 				'Gruntfile.js',
-				'assets/scripts/*.js',
-				'!assets/scripts/*.min.js',
+				'assets/js/*.js',
+				'!assets/js/*.min.js',
 			]
 		},
 

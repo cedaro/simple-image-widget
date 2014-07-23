@@ -68,12 +68,12 @@ class Simple_Image_Widget_Plugin {
 	public function register_assets() {
 		wp_register_style(
 			'simple-image-widget-admin',
-			dirname( plugin_dir_url( __FILE__ ) ) . '/assets/styles/simple-image-widget.css'
+			dirname( plugin_dir_url( __FILE__ ) ) . '/assets/css/simple-image-widget.css'
 		);
 
 		wp_register_script(
 			'simple-image-widget-admin',
-			dirname( plugin_dir_url( __FILE__ ) ) . '/assets/scripts/simple-image-widget.js',
+			dirname( plugin_dir_url( __FILE__ ) ) . '/assets/js/simple-image-widget.js',
 			array( 'media-upload', 'media-views' )
 		);
 
