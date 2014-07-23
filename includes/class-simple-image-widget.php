@@ -79,7 +79,7 @@ class Simple_Image_Widget extends WP_Widget {
 		}
 
 		// Copy the original values so they can be used in hooks.
-		$instance['text_raw']  = $instance['text'];
+		$instance['text_raw']  = empty( $instance['text'] ) ? '' : $instance['text'];
 		$instance['title_raw'] = $instance['title'];
 		$instance['text']      = apply_filters( 'widget_text', empty( $instance['text'] ) ? '' : $instance['text'], $instance, $this->id_base );
 		$instance['title']     = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
@@ -372,10 +372,26 @@ class Simple_Image_Widget extends WP_Widget {
 
 		$instance['title']      = wp_strip_all_tags( $new_instance['title'] );
 		$instance['image_id']   = absint( $new_instance['image_id'] );
-		$instance['link']       = esc_url_raw( $new_instance['link'] );
-		$instance['link_text']  = wp_kses_data( $new_instance['link_text'] );
 		$instance['new_window'] = isset( $new_instance['new_window'] );
-		$instance['text']       = stripslashes( wp_filter_post_kses( addslashes( $new_instance['text'] ) ) );
+
+		// Optional field that can be removed via a filter.
+		foreach ( array( 'link', 'link_text', 'text' ) as $key ) {
+			if ( ! isset( $new_instance[ $key ] ) ) {
+				continue;
+			}
+
+			switch ( $key ) {
+				case 'link' :
+					$instance['link'] = esc_url_raw( $new_instance['link'] );
+					break;
+				case 'link_text' :
+					$instance['link_text'] = wp_kses_data( $new_instance['link_text'] );
+					break;
+				case 'text' :
+					$instance['text'] = stripslashes( wp_filter_post_kses( addslashes( $new_instance['text'] ) ) );
+					break;
+			}
+		}
 
 		$this->flush_widget_cache();
 

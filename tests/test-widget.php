@@ -214,7 +214,6 @@ HTML;
 
 		$instance = array(
 			'title'      => '',
-			'text'       => '',
 		);
 
 		ob_start();
