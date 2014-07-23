@@ -2,7 +2,7 @@
 # This file is distributed under the GPL-2.0+.
 msgid ""
 msgstr ""
-"Project-Id-Version: Simple Image Widget 4.0.2\n"
+"Project-Id-Version: Simple Image Widget 4.1.0\n"
 "Report-Msgid-Bugs-To: "
 "http://wordpress.org/support/plugin/simple-image-widget\n"
 "POT-Creation-Date: 2014-06-13 21:26:00+00:00\n"
@@ -43,29 +43,57 @@ msgstr ""
 msgid "Alternate Text:"
 msgstr ""
 
-#: includes/class-simple-image-widget-plugin.php:85
+#: includes/class-simple-image-widget-plugin.php:87
 msgid "Choose an Attachment"
 msgstr ""
 
-#: includes/class-simple-image-widget-plugin.php:86
+#: includes/class-simple-image-widget-plugin.php:88
 msgid "Update Attachment"
 msgstr ""
 
-#: includes/class-simple-image-widget-plugin.php:87
-#: includes/class-simple-image-widget-plugin.php:128
-#: includes/class-simple-image-widget.php:412
+#: includes/class-simple-image-widget-plugin.php:89
+#: includes/class-simple-image-widget-plugin.php:179
+#: includes/class-simple-image-widget.php:457
 msgid "Full Size"
 msgstr ""
 
-#: includes/class-simple-image-widget-plugin.php:125
+#. Plugin Name of the plugin/theme
+msgid "Simple Image Widget"
+msgstr ""
+
+#: includes/class-simple-image-widget-plugin.php:115
+msgid "Image Size"
+msgstr ""
+
+#: includes/class-simple-image-widget-plugin.php:116
+msgid "Link"
+msgstr ""
+
+#: includes/class-simple-image-widget-plugin.php:117
+msgid "Link Classes"
+msgstr ""
+
+#: includes/class-simple-image-widget-plugin.php:118
+msgid "Link Text"
+msgstr ""
+
+#: includes/class-simple-image-widget-plugin.php:119
+msgid "New Window"
+msgstr ""
+
+#: includes/class-simple-image-widget-plugin.php:120
+msgid "Text"
+msgstr ""
+
+#: includes/class-simple-image-widget-plugin.php:176
 msgid "Thumbnail"
 msgstr ""
 
-#: includes/class-simple-image-widget-plugin.php:126
+#: includes/class-simple-image-widget-plugin.php:177
 msgid "Medium"
 msgstr ""
 
-#: includes/class-simple-image-widget-plugin.php:127
+#: includes/class-simple-image-widget-plugin.php:178
 msgid "Large"
 msgstr ""
 
@@ -77,41 +105,41 @@ msgstr ""
 msgid "An image from your Media Library."
 msgstr ""
 
-#: includes/class-simple-image-widget.php:235
+#: includes/class-simple-image-widget.php:252
 msgid "Title:"
 msgstr ""
 
-#: includes/class-simple-image-widget.php:241
-#: includes/class-simple-image-widget.php:251
+#: includes/class-simple-image-widget.php:258
+#: includes/class-simple-image-widget.php:268
 msgid "Choose an Image"
 msgstr ""
 
-#: includes/class-simple-image-widget.php:242
+#: includes/class-simple-image-widget.php:259
 msgid "Update Image"
 msgstr ""
 
-#: includes/class-simple-image-widget.php:263
+#: includes/class-simple-image-widget.php:280
 msgid "Size:"
 msgstr ""
 
-#: includes/class-simple-image-widget.php:283
+#: includes/class-simple-image-widget.php:300
 msgid "Link:"
 msgstr ""
 
-#: includes/class-simple-image-widget.php:289
+#: includes/class-simple-image-widget.php:306
 msgid "Open in new window?"
 msgstr ""
 
-#: includes/class-simple-image-widget.php:298
+#: includes/class-simple-image-widget.php:315
+msgid "Link Classes:"
+msgstr ""
+
+#: includes/class-simple-image-widget.php:324
 msgid "Link Text:"
 msgstr ""
 
-#: includes/class-simple-image-widget.php:307
+#: includes/class-simple-image-widget.php:333
 msgid "Text:"
-msgstr ""
-
-#. Plugin Name of the plugin/theme
-msgid "Simple Image Widget"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
