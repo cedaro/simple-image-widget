@@ -114,6 +114,7 @@ class Simple_Image_Widget_Plugin {
 		$fields = array(
 			'image_size'   => __( 'Image Size', 'simple-image-widget' ),
 			'link'         => __( 'Link', 'simple-image-widget' ),
+			'link_classes' => __( 'Link Classes', 'simple-image-widget' ),
 			'link_text'    => __( 'Link Text', 'simple-image-widget' ),
 			'new_window'   => __( 'New Window', 'simple-image-widget' ),
 			'text'         => __( 'Text', 'simple-image-widget' ),
@@ -189,6 +190,11 @@ class Simple_Image_Widget_Plugin {
 	 */
 	public static function get_hidden_fields() {
 		$hidden_fields = get_user_option( 'siw_hidden_fields', get_current_user_id() );
+
+		// Fields that are hidden by default.
+		if ( false === $hidden_fields ) {
+			$hidden_fields = array( 'link_classes' );
+		}
 
 		/**
 		 * List of hidden field ids.

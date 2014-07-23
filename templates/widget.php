@@ -37,9 +37,9 @@ endif;
 <?php if ( ! empty( $link_text ) ) : ?>
 	<p class="more">
 		<?php
-		echo $link_open;
+		echo $text_link_open;
 		echo $link_text;
-		echo $link_close;
+		echo $text_link_close;
 		?>
 	</p>
 <?php endif; ?>

@@ -96,14 +96,30 @@ class Simple_Image_Widget extends WP_Widget {
 		}
 
 		if ( empty( $output ) ) {
-			$instance['link_open']  = '';
-			$instance['link_close'] = '';
+			$instance['link_open']       = '';
+			$instance['link_close']      = '';
+			$instance['text_link_open']  = '';
+			$instance['text_link_close'] = '';
 
 			if ( ! empty ( $instance['link'] ) ) {
 				$target = ( empty( $instance['new_window'] ) ) ? '' : ' target="_blank"';
 
 				$instance['link_open']  = '<a href="' . esc_url( $instance['link'] ) . '"' . $target . '>';
 				$instance['link_close'] = '</a>';
+
+				// This is to differentiate between the image link and text link.
+				$instance['text_link_open']  = $instance['link_open'];
+				$instance['text_link_close'] = $instance['link_close'];
+
+				// The link classes should only be added to the text link.
+				if ( ! empty( $instance['link_classes'] ) ) {
+					$instance['text_link_open'] = sprintf(
+						'<a href="%1$s" class="%3$s"%2$s>',
+						esc_url( $instance['link'] ),
+						$target,
+						esc_attr( $instance['link_classes'] )
+					);
+				}
 			}
 
 			$output = $this->render( $args, $instance );
@@ -184,15 +200,16 @@ class Simple_Image_Widget extends WP_Widget {
 		$instance = wp_parse_args(
 			(array) $instance,
 			array(
-				'alt'        => '', // Legacy.
-				'image'      => '', // Legacy URL field.
-				'image_id'   => '',
-				'image_size' => 'full',
-				'link'       => '',
-				'link_text'  => '',
-				'new_window' => '',
-				'title'      => '',
-				'text'       => '',
+				'alt'          => '', // Legacy.
+				'image'        => '', // Legacy URL field.
+				'image_id'     => '',
+				'image_size'   => 'full',
+				'link'         => '',
+				'link_classes' => '',
+				'link_text'    => '',
+				'new_window'   => '',
+				'title'        => '',
+				'text'         => '',
 			)
 		);
 
@@ -292,6 +309,15 @@ class Simple_Image_Widget extends WP_Widget {
 							<?php
 							break;
 
+						case 'link_classes' :
+							?>
+							<p class="<?php echo esc_attr( $this->siw_field_class( 'link_classes' ) ); ?>">
+								<label for="<?php echo esc_attr( $this->get_field_id( 'link_classes' ) ); ?>"><?php _e( 'Link Classes:', 'simple-image-widget' ); ?></label>
+								<input type="text" name="<?php echo esc_attr( $this->get_field_name( 'link_classes' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'link_classes' ) ); ?>" value="<?php echo esc_attr( $instance['link_classes'] ); ?>" class="widefat">
+							</p>
+							<?php
+							break;
+
 						case 'link_text' :
 							?>
 							<p class="<?php echo esc_attr( $this->siw_field_class( 'link_text' ) ); ?>">
@@ -353,7 +379,7 @@ class Simple_Image_Widget extends WP_Widget {
 	 * @return string List of field ids.
 	 */
 	public function form_fields() {
-		return array( 'image_size', 'link', 'link_text', 'text' );
+		return array( 'image_size', 'link', 'link_text', 'link_classes', 'text' );
 	}
 
 	/**
@@ -375,7 +401,7 @@ class Simple_Image_Widget extends WP_Widget {
 		$instance['new_window'] = isset( $new_instance['new_window'] );
 
 		// Optional field that can be removed via a filter.
-		foreach ( array( 'link', 'link_text', 'text' ) as $key ) {
+		foreach ( array( 'link', 'link_classes', 'link_text', 'text' ) as $key ) {
 			if ( ! isset( $new_instance[ $key ] ) ) {
 				continue;
 			}
@@ -383,6 +409,9 @@ class Simple_Image_Widget extends WP_Widget {
 			switch ( $key ) {
 				case 'link' :
 					$instance['link'] = esc_url_raw( $new_instance['link'] );
+					break;
+				case 'link_classes' :
+					$instance['link_classes'] = implode( ' ', array_map( 'sanitize_html_class', explode( ' ', $new_instance['link_classes'] ) ) );
 					break;
 				case 'link_text' :
 					$instance['link_text'] = wp_kses_data( $new_instance['link_text'] );
