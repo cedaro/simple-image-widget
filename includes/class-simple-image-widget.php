@@ -80,9 +80,9 @@ class Simple_Image_Widget extends WP_Widget {
 
 		// Copy the original values so they can be used in hooks.
 		$instance['text_raw']  = empty( $instance['text'] ) ? '' : $instance['text'];
-		$instance['title_raw'] = $instance['title'];
-		$instance['text']      = apply_filters( 'widget_text', empty( $instance['text'] ) ? '' : $instance['text'], $instance, $this->id_base );
-		$instance['title']     = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
+		$instance['title_raw'] = empty( $instance['title'] ) ? '' : $instance['title'];
+		$instance['text']      = apply_filters( 'widget_text', $instance['text_raw'], $instance, $this->id_base );
+		$instance['title']     = apply_filters( 'widget_title', $instance['title_raw'], $instance, $this->id_base );
 
 		// Start building the output.
 		$output = '';
