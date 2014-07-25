@@ -1,0 +1,159 @@
+# Copyright (C) 2014 Blazer Six
+# This file is distributed under the GPL-2.0+.
+msgid ""
+msgstr ""
+"Project-Id-Version: Simple Image Widget 4.1.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/simple-image-"
+"widget\n"
+"POT-Creation-Date: 2014-06-13 21:26:00+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-07-25 15:18+0200\n"
+"Last-Translator: Tomi Mäenpää <hello@tomimaenpaa.com>\n"
+"Language-Team: Tomi Mäenpää <hello@tomimaenpaa.com>\n"
+"X-Generator: Poedit 1.6.7\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c;_nc:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Textdomain-Support: yes\n"
+"Language: fi\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: includes/class-simple-image-widget-legacy.php:108
+msgid "These fields are here to maintain your data from an earlier version."
+msgstr "Nämä kentät ylläpitävät asetuksesi aikaisemmasta versiosta."
+
+#: includes/class-simple-image-widget-legacy.php:111
+msgid ""
+"Select an image, then clear these values, and they will disappear when you "
+"save the widget."
+msgstr ""
+"Valitse kuva ja tyhjennä nämä arvot, niin ne häviävät kun tallennat "
+"vimpaimen."
+
+#: includes/class-simple-image-widget-legacy.php:116
+msgid "Image URL:"
+msgstr "Kuvan URL:"
+
+#: includes/class-simple-image-widget-legacy.php:120
+msgid "Alternate Text:"
+msgstr "Vaihtoehtoinen teksti:"
+
+#: includes/class-simple-image-widget-plugin.php:87
+msgid "Choose an Attachment"
+msgstr "Valitse Liitetiedosto"
+
+#: includes/class-simple-image-widget-plugin.php:88
+msgid "Update Attachment"
+msgstr "Päivitä Liitetiedosto"
+
+#: includes/class-simple-image-widget-plugin.php:89
+#: includes/class-simple-image-widget-plugin.php:179
+#: includes/class-simple-image-widget.php:457
+msgid "Full Size"
+msgstr "Täysikokoinen"
+
+#. Plugin Name of the plugin/theme
+msgid "Simple Image Widget"
+msgstr "Simple Image Widget"
+
+#: includes/class-simple-image-widget-plugin.php:115
+msgid "Image Size"
+msgstr "Kuvan koko"
+
+#: includes/class-simple-image-widget-plugin.php:116
+msgid "Link"
+msgstr "Linkki"
+
+#: includes/class-simple-image-widget-plugin.php:117
+msgid "Link Classes"
+msgstr "Linkin luokat"
+
+#: includes/class-simple-image-widget-plugin.php:118
+msgid "Link Text"
+msgstr "Linkin teksti"
+
+#: includes/class-simple-image-widget-plugin.php:119
+msgid "New Window"
+msgstr "Uusi ikkuna"
+
+#: includes/class-simple-image-widget-plugin.php:120
+msgid "Text"
+msgstr "Teksti"
+
+#: includes/class-simple-image-widget-plugin.php:176
+msgid "Thumbnail"
+msgstr "Pienoiskuva"
+
+#: includes/class-simple-image-widget-plugin.php:177
+msgid "Medium"
+msgstr "Keskikokoinen"
+
+#: includes/class-simple-image-widget-plugin.php:178
+msgid "Large"
+msgstr "Iso"
+
+#: includes/class-simple-image-widget.php:43
+msgid "Image"
+msgstr "Kuva"
+
+#: includes/class-simple-image-widget.php:49
+msgid "An image from your Media Library."
+msgstr "Kuva mediakirjastostasi."
+
+#: includes/class-simple-image-widget.php:252
+msgid "Title:"
+msgstr "Otsikko:"
+
+#: includes/class-simple-image-widget.php:258
+#: includes/class-simple-image-widget.php:268
+msgid "Choose an Image"
+msgstr "Valitse kuva"
+
+#: includes/class-simple-image-widget.php:259
+msgid "Update Image"
+msgstr "Päivitä kuva"
+
+#: includes/class-simple-image-widget.php:280
+msgid "Size:"
+msgstr "Koko:"
+
+#: includes/class-simple-image-widget.php:300
+msgid "Link:"
+msgstr "Linkki:"
+
+#: includes/class-simple-image-widget.php:306
+msgid "Open in new window?"
+msgstr "Avaa uudessa ikkunassa?"
+
+#: includes/class-simple-image-widget.php:315
+msgid "Link Classes:"
+msgstr "Linkin luokat:"
+
+#: includes/class-simple-image-widget.php:324
+msgid "Link Text:"
+msgstr "Linkin teksti:"
+
+#: includes/class-simple-image-widget.php:333
+msgid "Text:"
+msgstr "Teksti:"
+
+#. Plugin URI of the plugin/theme
+msgid "https://wordpress.org/extend/plugins/simple-image-widget/"
+msgstr "https://wordpress.org/extend/plugins/simple-image-widget/"
+
+#. Description of the plugin/theme
+msgid "A simple image widget utilizing the new WordPress media manager."
+msgstr ""
+"WordPressin uutta mediakirjastoa hyödyntävä yksinkertainen kuva-vimpain."
+
+#. Author of the plugin/theme
+msgid "Blazer Six"
+msgstr "Blazer Six"
+
+#. Author URI of the plugin/theme
+msgid "http://www.blazersix.com/"
+msgstr "http://www.blazersix.com/"
