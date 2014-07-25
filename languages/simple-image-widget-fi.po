@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2014-07-25 15:10+0200\n"
+"PO-Revision-Date: 2014-07-25 15:18+0200\n"
 "Last-Translator: Tomi Mäenpää <hello@tomimaenpaa.com>\n"
 "Language-Team: Tomi Mäenpää <hello@tomimaenpaa.com>\n"
 "X-Generator: Poedit 1.6.7\n"
@@ -102,7 +102,7 @@ msgstr "Kuva"
 
 #: includes/class-simple-image-widget.php:49
 msgid "An image from your Media Library."
-msgstr "Kuva Mediakirjastostasi."
+msgstr "Kuva mediakirjastostasi."
 
 #: includes/class-simple-image-widget.php:252
 msgid "Title:"
