@@ -27,6 +27,7 @@ Blazer Six took over development and maintenance of Simple Image Widget with ver
 
 = Translation Credits =
 
+* Finnish (fi) - Tomi Mäenpää [v4.1.1]
 * French (fr_FR) - Alexandre Sadowski [v4.0.1]
 
 == Installation ==
@@ -74,6 +75,10 @@ The widget uses the core function `wp_get_attachment_image()` to display the ima
 2. The widget after selecting an image.
 
 == Changelog ==
+
+= 4.1.1 =
+* Added Finnish translation.
+* Prevent a notice about non-existent title when adding a widget in the Customizer in debug mode.
 
 = 4.1.0 =
 * Added the ability to hide widget fields.
