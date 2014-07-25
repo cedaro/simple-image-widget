@@ -1,4 +1,4 @@
-/*global _:false, wp:false */
+/*global _:false, ajaxurl:false, wp:false */
 
 window.SimpleImageWidget = window.SimpleImageWidget || {};
 
