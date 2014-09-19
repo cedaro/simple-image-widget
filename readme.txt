@@ -29,6 +29,7 @@ Blazer Six took over development and maintenance of Simple Image Widget with ver
 
 * Finnish (fi) - Tomi Mäenpää [v4.1.1]
 * French (fr_FR) - Alexandre Sadowski [v4.0.1]
+* Serbo-Croation (sr_RS) - [Borisa Djuraskovic](http://www.webhostinghub.com/) [v4.1.2]
 
 == Installation ==
 
@@ -75,6 +76,9 @@ The widget uses the core function `wp_get_attachment_image()` to display the ima
 2. The widget after selecting an image.
 
 == Changelog ==
+
+= 4.1.2 =
+* Added Serbo-Croation translation.
 
 = 4.1.1 =
 * Added Finnish translation.
