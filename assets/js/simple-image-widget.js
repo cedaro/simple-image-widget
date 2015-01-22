@@ -2,13 +2,14 @@
 
 window.SimpleImageWidget = window.SimpleImageWidget || {};
 
-(function( window, $, _, wp, undefined ) {
+(function( window, $, _, Backbone, wp, undefined ) {
 	'use strict';
 
-	var SimpleImageWidget = window.SimpleImageWidget,
+	var Control, l10n,
+		SimpleImageWidget = window.SimpleImageWidget,
 		Attachment = wp.media.model.Attachment,
-		frames = [],
-		Control, l10n;
+		finder = { view: {} },
+		frames = [];
 
 	// Link any localized strings.
 	l10n = SimpleImageWidget.l10n = SimpleImageWidget.l10n || {};
@@ -168,10 +169,121 @@ window.SimpleImageWidget = window.SimpleImageWidget || {};
 		}
 	});
 
+	finder.view.Page = wp.Backbone.View.extend({
+		events: {
+			'click .simple-image-widget-find-posts-button' : 'openModal'
+		},
+
+		initialize: function( options ) {
+			this.modal = options.modal;
+			this.render();
+		},
+
+		render: function() {
+			this.$el.append( this.modal.$el );
+			return this;
+		},
+
+		openModal: function( e ) {
+			var $target = $( e.target).closest( '.simple-image-widget-input-group' ).find( 'input[type="text"]' );
+			e.preventDefault();
+			this.modal.open( $target );
+		}
+	});
+
+	finder.view.Modal = wp.Backbone.View.extend({
+		tagName: 'div',
+		className: 'find-box',
+		template: wp.template( 'simple-image-widget-modal' ),
+
+		events : {
+			'click .simple-image-widget-modal-search-button': 'findPosts',
+			'keypress .simple-image-widget-modal-search-field': 'routeKey',
+			'keyup .simple-image-widget-modal-search-field': 'routeKey',
+			'click tr': 'select',
+			'click .js-close': 'close'
+		},
+
+		initialize: function( options ) {
+			this.$pageWrapper = options.pageWrapper;
+			this.postTypes = options.postTypes;
+			this.$overlay = false;
+			this.$target = $();
+			this.render();
+		},
+
+		render: function() {
+			this.$el.hide().html( this.template() );
+			this.$field = this.$el.find( '.simple-image-widget-modal-search-field' );
+			this.$overlay = $( '.ui-find-overlay' );
+			this.$response = this.$el.find( '.simple-image-widget-modal-response' );
+			this.$spinner = this.$el.find( '.simple-image-widget-modal-search .spinner' );
+			return this;
+		},
+
+		close: function() {
+			this.$overlay.hide();
+			this.$el.hide();
+			this.$target = $();
+		},
+
+		findPosts: function() {
+			var self = this;
+			self.$spinner.show();
+
+			wp.ajax.post( 'simple_image_widget_find_posts', {
+				s: self.$field.val(),
+				post_types: this.postTypes,
+				nonce: $( '#siw-find-posts-ajax-nonce' ).val()
+			}).always(function() {
+				self.$spinner.hide();
+			}).done(function( response ) {
+				self.$response.html( response );
+			}).fail(function() {
+				self.$response.text( settings.l10n.responseError );
+			});
+		},
+
+		open: function( $target ) {
+			this.$target = $target;
+			this.$response.html( '' );
+			this.$el.show();
+			this.$field.focus();
+
+			if ( ! this.$overlay.length ) {
+				this.$pageWrapper.append( '<div class="ui-find-overlay"></div>' );
+				this.$overlay  = $( '.ui-find-overlay' );
+			}
+
+			this.$overlay.show();
+			this.findPosts();
+		},
+
+		routeKey: function( e ) {
+			if ( e.which && 13 === e.which ) {
+				this.findPosts();
+			} else if ( e.which && 27 === e.which ) {
+				this.close();
+			}
+		},
+
+		select: function( e ) {
+			var value = $( e.target ).closest( 'tr' ).find( 'input' ).val();
+			this.$target.val( value );
+			this.close();
+		}
+	});
+
 	// Document ready.
-	jQuery(function( $ ) {
-		var $body = $( 'body' );
-		
+	$( document ).ready(function() {
+		var modal,
+			$body = $( 'body' ),
+			$page = $( '.wp-full-overlay' );
+
+		if ( $page.length < 1 ) {
+			$page = $body
+		}
+
 		// Open the media frame when the choose button or image are clicked.
 		$body.on( 'click', '.simple-image-widget-control-choose, .simple-image-widget-form img', function( e ) {
 			e.preventDefault();
@@ -226,5 +338,22 @@ window.SimpleImageWidget = window.SimpleImageWidget || {};
 				}
 			});
 		});
+
+		$body.on( 'focus', '.simple-image-widget-input-group-field', function() {
+			$( this ).parent().addClass( 'is-focused' );
+		}).on( 'blur', '.simple-image-widget-input-group-field', function() {
+			$( this ).parent().removeClass( 'is-focused' );
+		});
+
+		modal = new finder.view.Modal({
+			postTypes: ['any'],
+			pageWrapper: $page
+		});
+
+		new finder.view.Page({
+			el: $page.get( 0 ),
+			modal: modal
+		});
 	});
-})( this, jQuery, _, wp );
+
+})( this, jQuery, _, Backbone, wp );

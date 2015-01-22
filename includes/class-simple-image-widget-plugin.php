@@ -34,6 +34,7 @@ class Simple_Image_Widget_Plugin {
 		add_action( 'init', array( $this, 'register_assets' ) );
 		add_action( 'sidebar_admin_setup', array( $this, 'enqueue_admin_assets' ) );
 		add_filter( 'screen_settings', array( $this, 'widgets_screen_settings' ), 10, 2 );
+		add_action( 'wp_ajax_simple_image_widget_find_posts', array( $this, 'ajax_find_posts' ) );
 		add_action( 'wp_ajax_simple_image_widget_preferences', array( $this, 'ajax_save_user_preferences' ) );
 	}
 
@@ -76,7 +77,7 @@ class Simple_Image_Widget_Plugin {
 		wp_register_script(
 			'simple-image-widget-admin',
 			dirname( plugin_dir_url( __FILE__ ) ) . '/assets/js/simple-image-widget.js',
-			array( 'media-upload', 'media-views' )
+			array( 'media-upload', 'media-views', 'wp-backbone', 'wp-util' )
 		);
 
 		wp_localize_script(
@@ -88,10 +89,14 @@ class Simple_Image_Widget_Plugin {
 					'frameUpdateText' => __( 'Update Attachment', 'simple-image-widget' ),
 					'fullSizeLabel'   => __( 'Full Size', 'simple-image-widget' ),
 					'imageSizeNames'  => self::get_image_size_names(),
+					'responseError'   => __( 'An error has occurred. Please reload the page and try again.', 'simple-image-widget' ),
 				),
 				'screenOptionsNonce' => wp_create_nonce( 'save-siw-preferences' ),
 			)
 		);
+
+		add_action( 'customize_controls_print_footer_scripts', array( $this, 'print_find_posts_templates' ) );
+		add_action( 'admin_footer', array( $this, 'print_find_posts_templates' ) );
 	}
 
 	/**
@@ -152,6 +157,7 @@ class Simple_Image_Widget_Plugin {
 	public function enqueue_admin_assets() {
 		wp_enqueue_media();
 		wp_enqueue_script( 'simple-image-widget-admin' );
+		wp_enqueue_script( 'simple-image-widget-find-posts' );
 		wp_enqueue_style( 'simple-image-widget-admin' );
 	}
 
@@ -207,6 +213,49 @@ class Simple_Image_Widget_Plugin {
 	}
 
 	/**
+	 * Ajax handler for finding posts.
+	 *
+	 * @since 4.2.0
+	 *
+	 * @see wp_ajax_find_posts()
+	 */
+	public function ajax_find_posts() {
+		check_ajax_referer( 'siw-find-posts', 'nonce' );
+
+		$post_types = array();
+
+		if ( ! empty( $_POST['post_types'] ) ) {
+			foreach ( $_POST['post_types'] as $post_type ) {
+				$post_types[ $post_type ] = get_post_type_object( $post_type );
+			}
+		}
+
+		if ( empty( $post_types ) ) {
+			$post_types['post'] = get_post_type_object( 'post' );
+		}
+
+		$args = array(
+			'post_type'      => array_keys( $post_types ),
+			'post_status'    => 'any',
+			'posts_per_page' => 50,
+		);
+
+		if ( ! empty( $_POST['s'] ) ) {
+			$args['s'] = wp_unslash( $_POST['s'] );
+		}
+
+		$posts = get_posts( $args );
+
+		if ( ! $posts ) {
+			wp_send_json_error( __( 'No items found.', 'simple-image-widget' ) );
+		}
+
+		$html = $this->get_found_posts_html( $posts );
+
+		wp_send_json_success( $html );
+	}
+
+	/**
 	 * AJAX callback to save the user's hidden fields.
 	 *
 	 * @since 4.1.0
@@ -226,5 +275,90 @@ class Simple_Image_Widget_Plugin {
 		}
 
 		wp_send_json_success( $data );
+	}
+
+	/**
+	 * Retrieve HTML for displaying a list of posts.
+	 *
+	 * @since 4.2.0
+	 *
+	 * @param array $posts Array of post objects.
+	 * @return string
+	 */
+	protected function get_found_posts_html( $posts ) {
+		$html = sprintf(
+			'<table class="widefat"><thead><tr><th>%1$s</th><th class="no-break">%2$s</th><th class="no-break">%3$s</th><th class="no-break">%4$s</th></tr></thead><tbody>',
+			__( 'Title', 'simple-image-widget' ),
+			__( 'Type', 'simple-image-widget' ),
+			__( 'Date', 'simple-image-widget' ),
+			__( 'Status', 'simple-image-widget' )
+		);
+
+		foreach ( $posts as $post ) {
+			$title     = trim( $post->post_title ) ? $post->post_title : __( '(no title)' );
+			$post_link = 'attachment' == get_post_type( $post->ID ) ? wp_get_attachment_url( $post->ID ) : get_permalink( $post->ID );
+
+			switch ( $post->post_status ) {
+				case 'publish' :
+				case 'private' :
+					$status = __( 'Published', 'simple-image-widget' );
+					break;
+				case 'future' :
+					$status = __( 'Scheduled', 'simple-image-widget' );
+					break;
+				case 'pending' :
+					$status = __( 'Pending Review', 'simple-image-widget' );
+					break;
+				case 'draft' :
+					$status = __( 'Draft', 'simple-image-widget' );
+					break;
+			}
+
+			if ( '0000-00-00 00:00:00' == $post->post_date ) {
+				$time = '';
+			} else {
+				/* translators: date format in table columns, see http://php.net/date */
+				$time = mysql2date( __( 'Y/m/d' ), $post->post_date );
+			}
+
+			$html .= sprintf(
+				'<tr class="found-posts"><td>%1$s <input type="hidden" value="%2$s"></td><td class="no-break">%3$s</td><td class="no-break">%4$s</td><td class="no-break">%5$s</td></tr>',
+				esc_html( $title ),
+				esc_url( apply_filters( 'simple_image_widget_find_posts_post_link', $post_link ), $post->ID ),
+				esc_html( get_post_type_object( $post->post_type )->labels->singular_name ),
+				esc_html( $time ),
+				esc_html( $status )
+			);
+		}
+
+		$html .= '</tbody></table>';
+
+		return $html;
+	}
+
+	/**
+	 * Print JavaScript templates in the Customizer footer.
+	 *
+	 * @since 4.2.0
+	 */
+	public function print_find_posts_templates() {
+		?>
+		<script type="text/html" id="tmpl-simple-image-widget-modal">
+			<div class="simple-image-widget-modal-head find-box-head">
+				<?php _e( 'Find Post', 'simple-image-widget' ); ?>
+				<div class="simple-image-widget-modal-close js-close"></div>
+			</div>
+			<div class="simple-image-widget-modal-inside find-box-inside">
+				<div class="simple-image-widget-modal-search find-box-search">
+					<?php wp_nonce_field( 'siw-find-posts', 'siw-find-posts-ajax-nonce', false ); ?>
+					<input type="text" name="s" value="" class="simple-image-widget-modal-search-field">
+					<span class="spinner"></span>
+					<input type="button" value="<?php esc_attr_e( 'Search', 'simple-image-widget' ); ?>" class="button simple-image-widget-modal-search-button" />
+					<div class="clear"></div>
+				</div>
+				<div class="simple-image-widget-modal-response"></div>
+			</div>
+		</script>
+		<?php
 	}
 }

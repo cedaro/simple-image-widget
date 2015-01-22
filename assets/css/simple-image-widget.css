@@ -21,6 +21,133 @@
 	max-width: 100%;
 }
 
+
+/* Input Button Group
+------------------------------------------------------------------------------*/
+
+.simple-image-widget-input-group {
+	border-spacing: 0;
+	display: block;
+	position: relative;
+	vertical-align: top;
+	width: 100%;
+}
+
+.simple-image-widget-input-group .simple-image-widget-input-group-field {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	border-right-width: 0;
+	margin: 0;
+	padding-right: 35px;
+	width: 100%;
+}
+
+.simple-image-widget-input-group-button {
+	background: #f7f7f7;
+	border: 1px solid #ddd;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	box-shadow: inset 0 1px 0 #fff;
+	box-sizing: border-box;
+	color: #727272;
+	cursor: pointer;
+	display: block;
+	height: auto;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: auto;
+	text-align: center;
+	vertical-align: middle;
+	white-space: nowrap;
+	width: 30px;
+}
+
+.simple-image-widget-input-group-button:hover {
+	background: #fafafa;
+	border-color: #999;
+	color: #222;
+}
+
+.simple-image-widget-input-group-button:active {
+	background: #eee;
+	border-color: #999;
+	color: #333;
+	box-shadow: inset 0 2px 5px -3px rgba(0, 0, 0, 0.5);
+}
+
+.simple-image-widget-input-group-button:focus,
+.simple-image-widget-input-group.is-focused .simple-image-widget-input-group-button {
+	border-color: #999;
+	box-shadow: inset 0 1px 0 #fff, 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Find Posts Modal
+------------------------------------------------------------------------------*/
+
+.simple-image-widget-modal-inside.find-box-inside {
+	bottom: 0;
+}
+
+.simple-image-widget-modal-response {
+	position: relative;
+}
+
+.simple-image-widget-modal-response table {
+	margin-bottom: 16px;
+}
+
+.simple-image-widget-modal-response table tr:nth-child(odd) td {
+	background: #f9f9f9;
+}
+
+.simple-image-widget-modal-response table tr:hover td {
+	cursor: pointer;
+	background: #f3f3f3;
+}
+
+.simple-image-widget-modal-search input {
+	float: left;
+}
+
+.simple-image-widget-modal-search-field {
+	height: 28px;
+	margin: 0 4px 0 0;
+	width: 140px;
+}
+
+.simple-image-widget-modal-close {
+	color: #666;
+	cursor: pointer;
+	height: 36px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	text-align: center;
+	width: 36px;
+}
+
+.simple-image-widget-modal-close:hover {
+	color: #2ea2cc;
+}
+
+.simple-image-widget-modal-close:before {
+	content: '\f158';
+	font: normal 20px/36px 'dashicons';
+	speak: none;
+	vertical-align: top;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+
+/* Legacy Fields
+------------------------------------------------------------------------------*/
+
 .simple-image-widget-legacy-fields {
 	margin-bottom: 1em;
 	padding: 10px;

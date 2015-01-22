@@ -300,7 +300,10 @@ class Simple_Image_Widget extends WP_Widget {
 							?>
 							<p class="<?php echo esc_attr( $this->siw_field_class( 'link' ) ); ?>">
 								<label for="<?php echo esc_attr( $this->get_field_id( 'link' ) ); ?>"><?php _e( 'Link:', 'simple-image-widget' ); ?></label>
-								<input type="text" name="<?php echo esc_attr( $this->get_field_name( 'link' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'link' ) ); ?>" value="<?php echo esc_url( $instance['link'] ); ?>" class="widefat">
+								<span class="simple-image-widget-input-group">
+									<input type="text" name="<?php echo esc_attr( $this->get_field_name( 'link' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'link' ) ); ?>" value="<?php echo esc_url( $instance['link'] ); ?>" class="simple-image-widget-input-group-field">
+									<button class="simple-image-widget-find-posts-button simple-image-widget-input-group-button dashicons dashicons-search"></button>
+								</span>
 							</p>
 							<p class="<?php echo esc_attr( $this->siw_field_class( 'new_window' ) ); ?>" style="margin-top: -0.75em; padding-left: 2px">
 								<label for="<?php echo esc_attr( $this->get_field_id( 'new_window' ) ); ?>">
@@ -549,7 +552,7 @@ class Simple_Image_Widget extends WP_Widget {
 	/**
 	 * Retrieve a cache key based on a hash of passed parameters.
 	 *
-	 * @since 4.1.3
+	 * @since 4.2.0
 	 *
 	 * @return string
 	 */
@@ -563,7 +566,7 @@ class Simple_Image_Widget extends WP_Widget {
 	 * Remove a single image widget from the cache.
 	 *
 	 * @since 3.0.0
-	 * @deprecated 4.1.3
+	 * @deprecated 4.2.0
 	 */
 	public function flush_widget_cache() {}
 }
