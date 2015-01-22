@@ -1,0 +1,158 @@
+# Copyright (C) 2014 Blazer Six
+# This file is distributed under the GPL-2.0+.
+msgid ""
+msgstr ""
+"Project-Id-Version: Simple Image Widget 4.1.2\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/simple-image-"
+"widget\n"
+"POT-Creation-Date: 2014-06-13 21:26:00+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-01-14 17:55+0900\n"
+"Last-Translator: Fumito MIZUNO <ounziw@gmail.com>\n"
+"Language-Team: Fumito MIZUNO <ounziw@gmail.com>\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
+"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
+"esc_html_x:1,2c\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: ../\n"
+"X-Textdomain-Support: yes\n"
+"Language: ja\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: includes/class-simple-image-widget-legacy.php:108
+msgid "These fields are here to maintain your data from an earlier version."
+msgstr "これらのフィールドは、古いバージョンのデータを保持する為のものです。"
+
+#: includes/class-simple-image-widget-legacy.php:111
+msgid ""
+"Select an image, then clear these values, and they will disappear when you "
+"save the widget."
+msgstr ""
+"画像を選択してクリアすると、ウィジェットを保存した時に表示されなくなります。"
+
+#: includes/class-simple-image-widget-legacy.php:116
+msgid "Image URL:"
+msgstr "画像URL: "
+
+#: includes/class-simple-image-widget-legacy.php:120
+msgid "Alternate Text:"
+msgstr "代替テキスト: "
+
+#: includes/class-simple-image-widget-plugin.php:87
+msgid "Choose an Attachment"
+msgstr "添付ファイルを選択"
+
+#: includes/class-simple-image-widget-plugin.php:88
+msgid "Update Attachment"
+msgstr "添付ファイルを更新"
+
+#: includes/class-simple-image-widget-plugin.php:89
+#: includes/class-simple-image-widget-plugin.php:179
+#: includes/class-simple-image-widget.php:457
+msgid "Full Size"
+msgstr "フルサイズ"
+
+#. Plugin Name of the plugin/theme
+msgid "Simple Image Widget"
+msgstr "Simple Image Widget"
+
+#: includes/class-simple-image-widget-plugin.php:115
+msgid "Image Size"
+msgstr "画像サイズ"
+
+#: includes/class-simple-image-widget-plugin.php:116
+msgid "Link"
+msgstr "リンク"
+
+#: includes/class-simple-image-widget-plugin.php:117
+msgid "Link Classes"
+msgstr "リンクのクラス"
+
+#: includes/class-simple-image-widget-plugin.php:118
+msgid "Link Text"
+msgstr "リンクのテキスト"
+
+#: includes/class-simple-image-widget-plugin.php:119
+msgid "New Window"
+msgstr "新規ウィンドウ"
+
+#: includes/class-simple-image-widget-plugin.php:120
+msgid "Text"
+msgstr "テキスト"
+
+#: includes/class-simple-image-widget-plugin.php:176
+msgid "Thumbnail"
+msgstr "サムネイル"
+
+#: includes/class-simple-image-widget-plugin.php:177
+msgid "Medium"
+msgstr "中"
+
+#: includes/class-simple-image-widget-plugin.php:178
+msgid "Large"
+msgstr "大"
+
+#: includes/class-simple-image-widget.php:43
+msgid "Image"
+msgstr "画像"
+
+#: includes/class-simple-image-widget.php:49
+msgid "An image from your Media Library."
+msgstr "メディアライブラリの画像"
+
+#: includes/class-simple-image-widget.php:252
+msgid "Title:"
+msgstr "タイトル: "
+
+#: includes/class-simple-image-widget.php:258
+#: includes/class-simple-image-widget.php:268
+msgid "Choose an Image"
+msgstr "画像を選択"
+
+#: includes/class-simple-image-widget.php:259
+msgid "Update Image"
+msgstr "画像を更新"
+
+#: includes/class-simple-image-widget.php:280
+msgid "Size:"
+msgstr "サイズ: "
+
+#: includes/class-simple-image-widget.php:300
+msgid "Link:"
+msgstr "リンク: "
+
+#: includes/class-simple-image-widget.php:306
+msgid "Open in new window?"
+msgstr "新規ウィンドウで開く"
+
+#: includes/class-simple-image-widget.php:315
+msgid "Link Classes:"
+msgstr "リンクのクラス: "
+
+#: includes/class-simple-image-widget.php:324
+msgid "Link Text:"
+msgstr "リンクのテキスト: "
+
+#: includes/class-simple-image-widget.php:333
+msgid "Text:"
+msgstr "テキスト: "
+
+#. Plugin URI of the plugin/theme
+msgid "https://wordpress.org/extend/plugins/simple-image-widget/"
+msgstr "https://wordpress.org/extend/plugins/simple-image-widget/"
+
+#. Description of the plugin/theme
+msgid "A simple image widget utilizing the new WordPress media manager."
+msgstr "WordPress のメディアを使用した、シンプルな画像表示ウィジェット"
+
+#. Author of the plugin/theme
+msgid "Blazer Six"
+msgstr "Blazer Six"
+
+#. Author URI of the plugin/theme
+msgid "http://www.blazersix.com/"
+msgstr "http://www.blazersix.com/"

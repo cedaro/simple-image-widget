@@ -29,6 +29,7 @@ Blazer Six took over development and maintenance of Simple Image Widget with ver
 
 * Finnish (fi) - Tomi Mäenpää [v4.1.1]
 * French (fr_FR) - Alexandre Sadowski [v4.0.1]
+* Japanese (ja) - Fumito Mizuno [v4.2.0]
 * Serbo-Croation (sr_RS) - [Borisa Djuraskovic](http://www.webhostinghub.com/) [v4.1.2]
 
 == Installation ==
