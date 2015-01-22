@@ -1,15 +1,15 @@
-# Copyright (C) 2014 Blazer Six
+# Copyright (C) 2015 Blazer Six
 # This file is distributed under the GPL-2.0+.
 msgid ""
 msgstr ""
-"Project-Id-Version: Simple Image Widget 4.1.2\n"
+"Project-Id-Version: Simple Image Widget 4.2.0\n"
 "Report-Msgid-Bugs-To: "
 "http://wordpress.org/support/plugin/simple-image-widget\n"
 "POT-Creation-Date: 2014-06-13 21:26:00+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: grunt-wp-i18n 0.4.8\n"
@@ -43,58 +43,115 @@ msgstr ""
 msgid "Alternate Text:"
 msgstr ""
 
-#: includes/class-simple-image-widget-plugin.php:87
+#: includes/class-simple-image-widget-plugin.php:88
 msgid "Choose an Attachment"
 msgstr ""
 
-#: includes/class-simple-image-widget-plugin.php:88
+#: includes/class-simple-image-widget-plugin.php:89
 msgid "Update Attachment"
 msgstr ""
 
-#: includes/class-simple-image-widget-plugin.php:89
-#: includes/class-simple-image-widget-plugin.php:179
-#: includes/class-simple-image-widget.php:457
+#: includes/class-simple-image-widget-plugin.php:90
+#: includes/class-simple-image-widget-plugin.php:185
+#: includes/class-simple-image-widget.php:462
 msgid "Full Size"
+msgstr ""
+
+#: includes/class-simple-image-widget-plugin.php:92
+msgid "An error has occurred. Please reload the page and try again."
 msgstr ""
 
 #. Plugin Name of the plugin/theme
 msgid "Simple Image Widget"
 msgstr ""
 
-#: includes/class-simple-image-widget-plugin.php:115
+#: includes/class-simple-image-widget-plugin.php:120
 msgid "Image Size"
 msgstr ""
 
-#: includes/class-simple-image-widget-plugin.php:116
+#: includes/class-simple-image-widget-plugin.php:121
 msgid "Link"
 msgstr ""
 
-#: includes/class-simple-image-widget-plugin.php:117
+#: includes/class-simple-image-widget-plugin.php:122
 msgid "Link Classes"
 msgstr ""
 
-#: includes/class-simple-image-widget-plugin.php:118
+#: includes/class-simple-image-widget-plugin.php:123
 msgid "Link Text"
 msgstr ""
 
-#: includes/class-simple-image-widget-plugin.php:119
+#: includes/class-simple-image-widget-plugin.php:124
 msgid "New Window"
 msgstr ""
 
-#: includes/class-simple-image-widget-plugin.php:120
+#: includes/class-simple-image-widget-plugin.php:125
 msgid "Text"
 msgstr ""
 
-#: includes/class-simple-image-widget-plugin.php:176
+#: includes/class-simple-image-widget-plugin.php:182
 msgid "Thumbnail"
 msgstr ""
 
-#: includes/class-simple-image-widget-plugin.php:177
+#: includes/class-simple-image-widget-plugin.php:183
 msgid "Medium"
 msgstr ""
 
-#: includes/class-simple-image-widget-plugin.php:178
+#: includes/class-simple-image-widget-plugin.php:184
 msgid "Large"
+msgstr ""
+
+#: includes/class-simple-image-widget-plugin.php:250
+msgid "No items found."
+msgstr ""
+
+#: includes/class-simple-image-widget-plugin.php:291
+msgid "Title"
+msgstr ""
+
+#: includes/class-simple-image-widget-plugin.php:292
+msgid "Type"
+msgstr ""
+
+#: includes/class-simple-image-widget-plugin.php:293
+msgid "Date"
+msgstr ""
+
+#: includes/class-simple-image-widget-plugin.php:294
+msgid "Status"
+msgstr ""
+
+#: includes/class-simple-image-widget-plugin.php:298
+msgid "(no title)"
+msgstr ""
+
+#: includes/class-simple-image-widget-plugin.php:304
+msgid "Published"
+msgstr ""
+
+#: includes/class-simple-image-widget-plugin.php:307
+msgid "Scheduled"
+msgstr ""
+
+#: includes/class-simple-image-widget-plugin.php:310
+msgid "Pending Review"
+msgstr ""
+
+#: includes/class-simple-image-widget-plugin.php:313
+msgid "Draft"
+msgstr ""
+
+#: includes/class-simple-image-widget-plugin.php:321
+#. translators: date format in table columns, see http:php.net/date
+msgid "Y/m/d"
+msgstr ""
+
+#: includes/class-simple-image-widget-plugin.php:348
+msgid "Find Post"
+msgstr ""
+
+#: includes/class-simple-image-widget-plugin.php:356
+msgid "Search"
 msgstr ""
 
 #: includes/class-simple-image-widget.php:43
@@ -105,40 +162,40 @@ msgstr ""
 msgid "An image from your Media Library."
 msgstr ""
 
-#: includes/class-simple-image-widget.php:252
+#: includes/class-simple-image-widget.php:254
 msgid "Title:"
 msgstr ""
 
-#: includes/class-simple-image-widget.php:258
-#: includes/class-simple-image-widget.php:268
+#: includes/class-simple-image-widget.php:260
+#: includes/class-simple-image-widget.php:270
 msgid "Choose an Image"
 msgstr ""
 
-#: includes/class-simple-image-widget.php:259
+#: includes/class-simple-image-widget.php:261
 msgid "Update Image"
 msgstr ""
 
-#: includes/class-simple-image-widget.php:280
+#: includes/class-simple-image-widget.php:282
 msgid "Size:"
 msgstr ""
 
-#: includes/class-simple-image-widget.php:300
+#: includes/class-simple-image-widget.php:302
 msgid "Link:"
 msgstr ""
 
-#: includes/class-simple-image-widget.php:306
+#: includes/class-simple-image-widget.php:311
 msgid "Open in new window?"
 msgstr ""
 
-#: includes/class-simple-image-widget.php:315
+#: includes/class-simple-image-widget.php:320
 msgid "Link Classes:"
 msgstr ""
 
-#: includes/class-simple-image-widget.php:324
+#: includes/class-simple-image-widget.php:329
 msgid "Link Text:"
 msgstr ""
 
-#: includes/class-simple-image-widget.php:333
+#: includes/class-simple-image-widget.php:338
 msgid "Text:"
 msgstr ""
 

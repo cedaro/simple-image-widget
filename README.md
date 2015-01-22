@@ -4,7 +4,7 @@ A simple image widget that makes it a breeze to add images to sidebars in WordPr
 
 __Contributors:__ [Brady Vercher](https://github.com/bradyvercher)  
 __Requires:__ 3.5  
-__Tested up to:__ 4.0  
+__Tested up to:__ 4.1  
 __License:__ [GPL-2.0+](http://www.gnu.org/licenses/gpl-2.0.html)
 
 Simple Image Widget is what the name implies -- the easiest way to add images to sidebars in WordPress.
@@ -18,7 +18,6 @@ Simple Image Widget is available in the [WordPress plugin repository](http://wor
 ## Potential Roadmap
 
 * Drag and drop uploading
-* Allow searching for a post/page/attachment to use as the link
 
 ## Credits
 

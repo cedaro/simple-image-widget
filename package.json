@@ -1,6 +1,6 @@
 {
   "name": "simple-image-widget",
-  "version": "4.1.2",
+  "version": "4.2.0",
   "description": "A simple WordPress image widget.",
   "main": "Gruntfile.js",
   "repository": {

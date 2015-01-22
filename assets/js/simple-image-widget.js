@@ -1,4 +1,4 @@
-/*global _:false, ajaxurl:false, wp:false */
+/*global _:false, ajaxurl:false, Backbone:false, wp:false */
 
 window.SimpleImageWidget = window.SimpleImageWidget || {};
 
@@ -240,7 +240,7 @@ window.SimpleImageWidget = window.SimpleImageWidget || {};
 			}).done(function( response ) {
 				self.$response.html( response );
 			}).fail(function() {
-				self.$response.text( settings.l10n.responseError );
+				self.$response.text( l10n.responseError );
 			});
 		},
 
@@ -281,7 +281,7 @@ window.SimpleImageWidget = window.SimpleImageWidget || {};
 			$page = $( '.wp-full-overlay' );
 
 		if ( $page.length < 1 ) {
-			$page = $body
+			$page = $body;
 		}
 
 		// Open the media frame when the choose button or image are clicked.

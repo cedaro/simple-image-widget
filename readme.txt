@@ -2,7 +2,7 @@
 Contributors: blazersix, bradyvercher
 Tags: image widget, widget, media, media manager, sidebar, image, photo, picture
 Requires at least: 3.5
-Tested up to: 4.0
+Tested up to: 4.1
 Stable tag: trunk
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -77,6 +77,12 @@ The widget uses the core function `wp_get_attachment_image()` to display the ima
 2. The widget after selecting an image.
 
 == Changelog ==
+
+= 4.2.0 =
+* Added functionality to search for posts to link images to.
+* Added Japanese translation.
+* Changed the method for generating cache keys. Should provide better support for the_widget() and similar methods.
+* Deprecated the method for flushing a single widget instance from the cache.
 
 = 4.1.2 =
 * Added Serbo-Croation translation.
