@@ -297,6 +297,7 @@ class Simple_Image_Widget_Plugin {
 		foreach ( $posts as $post ) {
 			$title     = trim( $post->post_title ) ? $post->post_title : __( '(no title)' );
 			$post_link = 'attachment' == get_post_type( $post->ID ) ? wp_get_attachment_url( $post->ID ) : get_permalink( $post->ID );
+			$status    = '';
 
 			switch ( $post->post_status ) {
 				case 'publish' :
