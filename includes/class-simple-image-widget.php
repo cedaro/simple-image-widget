@@ -557,7 +557,10 @@ class Simple_Image_Widget extends WP_Widget {
 	 * @return string
 	 */
 	protected function siw_get_cache_key() {
-		$data = array_reduce( func_get_args(), 'array_merge', array() );
+		$data = array();
+		foreach ( func_get_args() as $arg ) {
+			$data = array_merge( $data, (array) $arg );
+		}
 		ksort( $data );
 		return 'siw_' . md5( json_encode( $data ) );
 	}
