@@ -2,7 +2,7 @@
 # This file is distributed under the GPL-2.0+.
 msgid ""
 msgstr ""
-"Project-Id-Version: Simple Image Widget 4.2.0\n"
+"Project-Id-Version: Simple Image Widget 4.2.1\n"
 "Report-Msgid-Bugs-To: "
 "http://wordpress.org/support/plugin/simple-image-widget\n"
 "POT-Creation-Date: 2014-06-13 21:26:00+00:00\n"
@@ -125,32 +125,32 @@ msgstr ""
 msgid "(no title)"
 msgstr ""
 
-#: includes/class-simple-image-widget-plugin.php:304
+#: includes/class-simple-image-widget-plugin.php:305
 msgid "Published"
 msgstr ""
 
-#: includes/class-simple-image-widget-plugin.php:307
+#: includes/class-simple-image-widget-plugin.php:308
 msgid "Scheduled"
 msgstr ""
 
-#: includes/class-simple-image-widget-plugin.php:310
+#: includes/class-simple-image-widget-plugin.php:311
 msgid "Pending Review"
 msgstr ""
 
-#: includes/class-simple-image-widget-plugin.php:313
+#: includes/class-simple-image-widget-plugin.php:314
 msgid "Draft"
 msgstr ""
 
-#: includes/class-simple-image-widget-plugin.php:321
+#: includes/class-simple-image-widget-plugin.php:322
 #. translators: date format in table columns, see http:php.net/date
 msgid "Y/m/d"
 msgstr ""
 
-#: includes/class-simple-image-widget-plugin.php:348
+#: includes/class-simple-image-widget-plugin.php:349
 msgid "Find Post"
 msgstr ""
 
-#: includes/class-simple-image-widget-plugin.php:356
+#: includes/class-simple-image-widget-plugin.php:357
 msgid "Search"
 msgstr ""
 

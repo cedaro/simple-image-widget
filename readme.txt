@@ -78,6 +78,10 @@ The widget uses the core function `wp_get_attachment_image()` to display the ima
 
 == Changelog ==
 
+= 4.2.1 =
+* Fixed a PHP 5.2 incompatibility that prevented the correct image from showing on the front-end.
+* Fixed a debug notice when searching for attachments in the new find posts modal.
+
 = 4.2.0 =
 * Added functionality to search for posts to link images to.
 * Added Japanese translation.
