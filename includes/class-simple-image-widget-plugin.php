@@ -322,11 +322,20 @@ class Simple_Image_Widget_Plugin {
 				$time = mysql2date( __( 'Y/m/d' ), $post->post_date );
 			}
 
+			$post_type_label = get_post_type_object( $post->post_type )->labels->singular_name;
+			if ( 'attachment' == get_post_type( $post->ID ) ) {
+				if ( preg_match( '/^.*?\.(\w+)$/', get_attached_file( $post->ID ), $matches ) ) {
+					$post_type_label = esc_html( strtoupper( $matches[1] ) );
+				} else {
+					$post_type_label = strtoupper( str_replace( 'image/', '', get_post_mime_type( $post->ID ) ) );
+				}
+			}
+
 			$html .= sprintf(
 				'<tr class="found-posts"><td>%1$s <input type="hidden" value="%2$s"></td><td class="no-break">%3$s</td><td class="no-break">%4$s</td><td class="no-break">%5$s</td></tr>',
 				esc_html( $title ),
 				esc_url( apply_filters( 'simple_image_widget_find_posts_post_link', $post_link ), $post->ID ),
-				esc_html( get_post_type_object( $post->post_type )->labels->singular_name ),
+				esc_html( $post_type_label ),
 				esc_html( $time ),
 				esc_html( $status )
 			);
