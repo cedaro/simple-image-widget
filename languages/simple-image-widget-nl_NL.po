@@ -1,0 +1,218 @@
+# Copyright (C) 2015 Blazer Six
+# This file is distributed under the GPL-2.0+.
+msgid ""
+msgstr ""
+"Project-Id-Version: Simple Image Widget 4.2.1\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/simple-image-"
+"widget\n"
+"POT-Creation-Date: 2014-06-13 21:26:00+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-05-03 09:57+0100\n"
+"X-Generator: Poedit 1.7.6\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;"
+"_n_noop:1,2;_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;"
+"esc_attr_x:1,2c;esc_html_x:1,2c\n"
+"Language: nl\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: ../\n"
+"X-Textdomain-Support: yes\n"
+"Last-Translator: Ronald de Caluwe <rdecauwe@webzenz.nl>\n"
+"Language-Team: \n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: includes/class-simple-image-widget-legacy.php:108
+msgid "These fields are here to maintain your data from an earlier version."
+msgstr "Deze velden zijn er om je gegevens van eerdere versies te bewaren."
+
+#: includes/class-simple-image-widget-legacy.php:111
+msgid ""
+"Select an image, then clear these values, and they will disappear when you "
+"save the widget."
+msgstr ""
+"Kies een afbeelding, verwijder daarna deze waarden, en ze zullen "
+"verdwijnen wanneer je de widget opslaat."
+
+#: includes/class-simple-image-widget-legacy.php:116
+msgid "Image URL:"
+msgstr "Afbeelding URL:"
+
+#: includes/class-simple-image-widget-legacy.php:120
+msgid "Alternate Text:"
+msgstr "Alternatieve tekst:"
+
+#: includes/class-simple-image-widget-plugin.php:88
+msgid "Choose an Attachment"
+msgstr "Kies een bijlage"
+
+#: includes/class-simple-image-widget-plugin.php:89
+msgid "Update Attachment"
+msgstr "Bijlage bijwerken"
+
+#: includes/class-simple-image-widget-plugin.php:90
+#: includes/class-simple-image-widget-plugin.php:185
+#: includes/class-simple-image-widget.php:462
+msgid "Full Size"
+msgstr "Volledige grootte"
+
+#: includes/class-simple-image-widget-plugin.php:92
+msgid "An error has occurred. Please reload the page and try again."
+msgstr "Er is een fout opgetreden. Herlaad de pagina en probeer het opnieuw."
+
+#. Plugin Name of the plugin/theme
+msgid "Simple Image Widget"
+msgstr "Simple Image Widget"
+
+#: includes/class-simple-image-widget-plugin.php:120
+msgid "Image Size"
+msgstr "Afbeelding grootte"
+
+#: includes/class-simple-image-widget-plugin.php:121
+msgid "Link"
+msgstr "Link"
+
+#: includes/class-simple-image-widget-plugin.php:122
+msgid "Link Classes"
+msgstr "Link class(es)"
+
+#: includes/class-simple-image-widget-plugin.php:123
+msgid "Link Text"
+msgstr "Link tekst"
+
+#: includes/class-simple-image-widget-plugin.php:124
+msgid "New Window"
+msgstr "Nieuw venster"
+
+#: includes/class-simple-image-widget-plugin.php:125
+msgid "Text"
+msgstr "Tekst"
+
+#: includes/class-simple-image-widget-plugin.php:182
+msgid "Thumbnail"
+msgstr "Thumbnail"
+
+#: includes/class-simple-image-widget-plugin.php:183
+msgid "Medium"
+msgstr "Gemiddeld"
+
+#: includes/class-simple-image-widget-plugin.php:184
+msgid "Large"
+msgstr "Groot"
+
+#: includes/class-simple-image-widget-plugin.php:250
+msgid "No items found."
+msgstr "Geen items gevonden."
+
+#: includes/class-simple-image-widget-plugin.php:291
+msgid "Title"
+msgstr "Titel"
+
+#: includes/class-simple-image-widget-plugin.php:292
+msgid "Type"
+msgstr "Type"
+
+#: includes/class-simple-image-widget-plugin.php:293
+msgid "Date"
+msgstr "Datum"
+
+#: includes/class-simple-image-widget-plugin.php:294
+msgid "Status"
+msgstr "Status"
+
+#: includes/class-simple-image-widget-plugin.php:298
+msgid "(no title)"
+msgstr "(geen titel)"
+
+#: includes/class-simple-image-widget-plugin.php:305
+msgid "Published"
+msgstr "Gepubliceerd"
+
+#: includes/class-simple-image-widget-plugin.php:308
+msgid "Scheduled"
+msgstr "Gepland"
+
+#: includes/class-simple-image-widget-plugin.php:311
+msgid "Pending Review"
+msgstr "Wacht op beoordeling"
+
+#: includes/class-simple-image-widget-plugin.php:314
+msgid "Draft"
+msgstr "Concept"
+
+#. translators: date format in table columns, see http:php.net/date
+#: includes/class-simple-image-widget-plugin.php:322
+msgid "Y/m/d"
+msgstr "Y/m/d"
+
+#: includes/class-simple-image-widget-plugin.php:349
+msgid "Find Post"
+msgstr "Vind Bericht"
+
+#: includes/class-simple-image-widget-plugin.php:357
+msgid "Search"
+msgstr "Zoek"
+
+#: includes/class-simple-image-widget.php:43
+msgid "Image"
+msgstr "Afbeelding"
+
+#: includes/class-simple-image-widget.php:49
+msgid "An image from your Media Library."
+msgstr "Een afbeelding uit je media-bibliotheek."
+
+#: includes/class-simple-image-widget.php:254
+msgid "Title:"
+msgstr "Titel:"
+
+#: includes/class-simple-image-widget.php:260
+#: includes/class-simple-image-widget.php:270
+msgid "Choose an Image"
+msgstr "Kies een afbeelding"
+
+#: includes/class-simple-image-widget.php:261
+msgid "Update Image"
+msgstr "Afbeelding bijwerken"
+
+#: includes/class-simple-image-widget.php:282
+msgid "Size:"
+msgstr "Grootte:"
+
+#: includes/class-simple-image-widget.php:302
+msgid "Link:"
+msgstr "Link:"
+
+#: includes/class-simple-image-widget.php:311
+msgid "Open in new window?"
+msgstr "Openen in nieuw venster?"
+
+#: includes/class-simple-image-widget.php:320
+msgid "Link Classes:"
+msgstr "Link class(es):"
+
+#: includes/class-simple-image-widget.php:329
+msgid "Link Text:"
+msgstr "Link tekst:"
+
+#: includes/class-simple-image-widget.php:338
+msgid "Text:"
+msgstr "Tekst: "
+
+#. Plugin URI of the plugin/theme
+msgid "https://wordpress.org/extend/plugins/simple-image-widget/"
+msgstr "https://wordpress.org/extend/plugins/simple-image-widget/"
+
+#. Description of the plugin/theme
+msgid "A simple image widget utilizing the new WordPress media manager."
+msgstr ""
+"Een eenvoudige afbeeldingswidget die gebruik maakt van de nieuwe WordPress "
+"media manager."
+
+#. Author of the plugin/theme
+msgid "Blazer Six"
+msgstr "Blazer Six"
+
+#. Author URI of the plugin/theme
+msgid "http://www.blazersix.com/"
+msgstr "http://www.blazersix.com/"
