@@ -2,7 +2,7 @@
 Contributors: blazersix, bradyvercher
 Tags: image widget, widget, media, media manager, sidebar, image, photo, picture
 Requires at least: 3.5
-Tested up to: 4.1
+Tested up to: 4.2
 Stable tag: trunk
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -27,6 +27,7 @@ Blazer Six took over development and maintenance of Simple Image Widget with ver
 
 = Translation Credits =
 
+* Dutch (nl_NL) - Ronald de Caluwé [4.2.2]
 * Finnish (fi) - Tomi Mäenpää [v4.1.1]
 * French (fr_FR) - Alexandre Sadowski [v4.0.1]
 * Japanese (ja) - Fumito Mizuno [v4.2.0]
@@ -77,6 +78,10 @@ The widget uses the core function `wp_get_attachment_image()` to display the ima
 2. The widget after selecting an image.
 
 == Changelog ==
+
+= 4.2.2 =
+* Show media extensions in the post finder modal.
+* Added Dutch translation.
 
 = 4.2.1 =
 * Fixed a PHP 5.2 incompatibility that prevented the correct image from showing on the front-end.
