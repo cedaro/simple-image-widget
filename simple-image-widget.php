@@ -4,16 +4,16 @@
  *
  * @package   SimpleImageWidget
  * @author    Brady Vercher
- * @copyright Copyright (c) 2014, Blazer Six, Inc.
+ * @copyright Copyright (c) 2015 Cedaro, LLC
  * @license   GPL-2.0+
  *
  * @wordpress-plugin
  * Plugin Name: Simple Image Widget
  * Plugin URI: https://wordpress.org/extend/plugins/simple-image-widget/
  * Description: A simple image widget utilizing the new WordPress media manager.
- * Version: 4.2.2
- * Author: Blazer Six
- * Author URI: http://www.blazersix.com/
+ * Version: 4.3.0
+ * Author: Cedaro
+ * Author URI: http://www.cedaro.com/?utm_source=wordpress-plugin&utm_medium=link&utm_content=simple-image-widget-author-uri&utm_campaign=plugins
  * License: GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: simple-image-widget

@@ -1,27 +1,27 @@
 {
   "name": "simple-image-widget",
-  "version": "4.2.2",
+  "version": "4.3.0",
   "description": "A simple WordPress image widget.",
   "main": "Gruntfile.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/blazersix/simple-image-widget.git"
+    "url": "https://github.com/cedaro/simple-image-widget.git"
   },
   "author": {
     "name": "Brady Vercher",
     "email": "brady@blazersix.com",
-    "url": "http://www.blazersix.com/"
+    "url": "http://www.cedaro.com/"
   },
   "license": "GPL-2.0+",
   "bugs": {
-    "url": "https://github.com/blazersix/simple-image-widget/issues"
+    "url": "https://github.com/cedaro/simple-image-widget/issues"
   },
-  "homepage": "https://github.com/blazersix/simple-image-widget",
+  "homepage": "https://github.com/cedaro/simple-image-widget",
   "devDependencies": {
     "grunt": "~0.4.5",
-    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-jshint": "~0.11.2",
     "grunt-contrib-watch": "~0.6.1",
-    "grunt-wp-i18n": "~0.4.8",
+    "grunt-wp-i18n": "~0.5.2",
     "matchdep": "~0.3.0"
   }
 }

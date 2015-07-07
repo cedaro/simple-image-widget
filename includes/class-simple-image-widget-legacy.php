@@ -3,7 +3,7 @@
  * Legacy support.
  *
  * @package   SimpleImageWidget
- * @copyright Copyright (c) 2014, Blazer Six, Inc.
+ * @copyright Copyright (c) 2015 Cedaro, LLC
  * @license   GPL-2.0+
  * @since     4.0.0
  */

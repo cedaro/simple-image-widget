@@ -1,8 +1,8 @@
-# Copyright (C) 2015 Blazer Six
+# Copyright (C) 2015 Cedaro
 # This file is distributed under the GPL-2.0+.
 msgid ""
 msgstr ""
-"Project-Id-Version: Simple Image Widget 4.2.2\n"
+"Project-Id-Version: Simple Image Widget 4.3.0\n"
 "Report-Msgid-Bugs-To: "
 "http://wordpress.org/support/plugin/simple-image-widget\n"
 "POT-Creation-Date: 2014-06-13 21:26:00+00:00\n"
@@ -12,7 +12,7 @@ msgstr ""
 "PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"X-Generator: grunt-wp-i18n 0.4.8\n"
+"X-Generator: grunt-wp-i18n 0.5.2\n"
 "X-Poedit-KeywordsList: "
 "__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
 "attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
@@ -208,9 +208,11 @@ msgid "A simple image widget utilizing the new WordPress media manager."
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "Blazer Six"
+msgid "Cedaro"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "http://www.blazersix.com/"
+msgid ""
+"http://www.cedaro.com/?utm_source=wordpress-plugin&utm_medium=link&utm_"
+"content=simple-image-widget-author-uri&utm_campaign=plugins"
 msgstr ""

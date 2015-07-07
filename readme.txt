@@ -1,8 +1,8 @@
 === Simple Image Widget ===
-Contributors: blazersix, bradyvercher
+Contributors: cedaro, bradyvercher
 Tags: image widget, widget, media, media manager, sidebar, image, photo, picture
-Requires at least: 3.5
-Tested up to: 4.2
+Requires at least: 4.0
+Tested up to: 4.3
 Stable tag: trunk
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -15,15 +15,12 @@ Simple Image Widget is what the name implies -- the easiest way to add images to
 
 Despite its simplicity, Simple Image Widget is built with extensibility in mind, making it super easy to spin off new image-based widgets, or customize the widget ouput using the available template hierarchy.
 
-Blazer Six took over development and maintenance of Simple Image Widget with version 3.0, rewriting it from the ground up to take advantage of the media improvements in WordPress 3.5. Read about the original thought behind creating the plugin and ways it can be extended in [Building a Better Image Widget with the New WordPress Media Manager](http://www.blazersix.com/blog/wordpress-image-widget/).
-
 = Additional Resources =
 
-* [Write a review](http://wordpress.org/support/view/plugin-reviews/simple-image-widget#postform)
-* [Have a question?](http://wordpress.org/support/plugin/simple-image-widget)
-* [Contribute on GitHub](https://github.com/blazersix/simple-image-widget)
-* [Follow @bradyvercher](https://twitter.com/bradyvercher)
-* [Hire Blazer Six](http://www.blazersix.com/)
+* [Write a review](https://wordpress.org/support/view/plugin-reviews/simple-image-widget#postform)
+* [Contribute on GitHub](https://github.com/cedaro/simple-image-widget)
+* [Follow @cedaroco](https://twitter.com/cedaroco)
+* [Visit Cedaro](http://www.cedaro.com/?utm_source=wordpress.org&utm_medium=link&utm_content=simple-image-widget-readme&utm_campaign=plugins)
 
 = Translation Credits =
 
@@ -78,6 +75,9 @@ The widget uses the core function `wp_get_attachment_image()` to display the ima
 2. The widget after selecting an image.
 
 == Changelog ==
+
+= 4.3.0 =
+* Transferred to [Cedaro](http://www.cedaro.com/).
 
 = 4.2.2 =
 * Show media extensions in the post finder modal.
