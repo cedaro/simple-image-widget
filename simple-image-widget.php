@@ -9,7 +9,7 @@
  *
  * @wordpress-plugin
  * Plugin Name: Simple Image Widget
- * Plugin URI: https://wordpress.org/extend/plugins/simple-image-widget/
+ * Plugin URI: https://wordpress.org/plugins/simple-image-widget/
  * Description: A simple image widget utilizing the new WordPress media manager.
  * Version: 4.3.0
  * Author: Cedaro
