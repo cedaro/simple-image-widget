@@ -29,6 +29,7 @@ Despite its simplicity, Simple Image Widget is built with extensibility in mind,
 * French (fr_FR) - Alexandre Sadowski [v4.0.1]
 * Japanese (ja) - Fumito Mizuno [v4.2.0]
 * Serbo-Croation (sr_RS) - [Borisa Djuraskovic](http://www.webhostinghub.com/) [v4.1.2]
+* Hebrew (he_IL) - [Rami Yushuvaev](https://www.GenerateWP.com/) [v4.3.0]
 
 == Installation ==
 
