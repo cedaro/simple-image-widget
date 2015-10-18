@@ -1,5 +1,5 @@
 === Simple Image Widget ===
-Contributors: cedaro, bradyvercher
+Contributors: cedaro, bradyvercher, ramiy
 Tags: image widget, widget, media, media manager, sidebar, image, photo, picture
 Requires at least: 4.0
 Tested up to: 4.3
@@ -75,6 +75,10 @@ The widget uses the core function `wp_get_attachment_image()` to display the ima
 2. The widget after selecting an image.
 
 == Changelog ==
+
+= 4.4.0 =
+* Security - Prevent direct access to the main php file.
+* Security - Prevent direct access to directories.
 
 = 4.3.0 =
 * Transferred to [Cedaro](http://www.cedaro.com/).

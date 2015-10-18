@@ -21,6 +21,13 @@
  */
 
 /**
+ * Prevent direct access to the file
+ */
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+/**
  * Main plugin instance.
  *
  * @since 4.0.0
