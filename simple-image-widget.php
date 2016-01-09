@@ -17,8 +17,14 @@
  * License: GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: simple-image-widget
- * Domain Path: /languages
  */
+
+/**
+ * Prevent direct access to the file
+ */
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Main plugin instance.

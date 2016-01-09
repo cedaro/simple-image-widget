@@ -44,7 +44,7 @@ class Simple_Image_Widget_Plugin {
 	 * @since 3.0.0
 	 */
 	public function load_textdomain() {
-		load_plugin_textdomain( 'simple-image-widget', false, dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages' );
+		load_plugin_textdomain( 'simple-image-widget' );
 	}
 
 	/**
