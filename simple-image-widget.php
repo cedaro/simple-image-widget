@@ -4,12 +4,12 @@
  *
  * @package   SimpleImageWidget
  * @author    Brady Vercher
- * @copyright Copyright (c) 2015 Cedaro, LLC
+ * @copyright Copyright (c) 2016 Cedaro, LLC
  * @license   GPL-2.0+
  *
  * @wordpress-plugin
  * Plugin Name: Simple Image Widget
- * Plugin URI: https://wordpress.org/extend/plugins/simple-image-widget/
+ * Plugin URI: https://wordpress.org/plugins/simple-image-widget/
  * Description: A simple image widget utilizing the new WordPress media manager.
  * Version: 4.4.0
  * Author: Cedaro
@@ -76,6 +76,10 @@ require_once( SIW_DIR . 'includes/class-simple-image-widget-template-loader.php'
  */
 class Simple_Image_Widget_Loader extends Simple_Image_Widget_Plugin {}
 
-// Initialize and load the plugin.
+/**
+ * Initialize and load the plugin.
+ *
+ * @since 
+ */
 $simple_image_widget = new Simple_Image_Widget_Plugin();
 add_action( 'plugins_loaded', array( $simple_image_widget, 'load' ) );
