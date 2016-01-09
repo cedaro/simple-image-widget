@@ -22,13 +22,7 @@ Despite its simplicity, Simple Image Widget is built with extensibility in mind,
 * [Follow @cedaroco](https://twitter.com/cedaroco)
 * [Visit Cedaro](http://www.cedaro.com/?utm_source=wordpress.org&utm_medium=link&utm_content=simple-image-widget-readme&utm_campaign=plugins)
 
-= Translation Credits =
 
-* Dutch (nl_NL) - Ronald de Caluwé [4.2.2]
-* Finnish (fi) - Tomi Mäenpää [v4.1.1]
-* French (fr_FR) - Alexandre Sadowski [v4.0.1]
-* Japanese (ja) - Fumito Mizuno [v4.2.0]
-* Serbo-Croation (sr_RS) - [Borisa Djuraskovic](http://www.webhostinghub.com/) [v4.1.2]
 
 == Installation ==
 
