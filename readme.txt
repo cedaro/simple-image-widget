@@ -71,8 +71,10 @@ The widget uses the core function `wp_get_attachment_image()` to display the ima
 == Changelog ==
 
 = 4.4.0 =
-* Security - Prevent direct access to the main php file.
-* Security - Prevent direct access to directories.
+* Security: Prevent direct access to the main php file.
+* Security: Prevent direct access to directories.
+* i18n: Remove po/mo files from the plugin.
+* i18n: Use [translate.wordpress.org](https://translate.wordpress.org/) to translate the plugin.
 
 = 4.3.0 =
 * Transferred to [Cedaro](http://www.cedaro.com/).
