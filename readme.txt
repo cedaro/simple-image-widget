@@ -22,11 +22,23 @@ Despite its simplicity, Simple Image Widget is built with extensibility in mind,
 * [Follow @cedaroco](https://twitter.com/cedaroco)
 * [Visit Cedaro](http://www.cedaro.com/?utm_source=wordpress.org&utm_medium=link&utm_content=simple-image-widget-readme&utm_campaign=plugins)
 
-
-
 == Installation ==
 
-Install just like most other plugins. [Check out the codex](http://codex.wordpress.org/Managing_Plugins#Installing_Plugins) if you have any questions.
+= Installation =
+1. In your WordPress Dashboard go to "Plugins" -> "Add Plugin".
+2. Search for "Simple Image Widget".
+3. Install the plugin by pressing the "Install" button.
+4. Activate the plugin by pressing the "Activate" button.
+
+= Minimum Requirements =
+* WordPress version 4.0 or greater.
+* PHP version 5.2.4 or greater.
+* MySQL version 5.0 or greater.
+
+= Recommended Requirements =
+* Latest WordPress version.
+* PHP version 5.6 or greater.
+* MySQL version 5.5 or greater.
 
 == Frequently Asked Questions ==
 
