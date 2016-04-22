@@ -11,7 +11,7 @@
  * Plugin Name: Simple Image Widget
  * Plugin URI: https://wordpress.org/plugins/simple-image-widget/
  * Description: A simple image widget utilizing the new WordPress media manager.
- * Version: 4.3.0
+ * Version: 4.4.0
  * Author: Cedaro
  * Author URI: http://www.cedaro.com/?utm_source=wordpress-plugin&utm_medium=link&utm_content=simple-image-widget-author-uri&utm_campaign=plugins
  * License: GPL-2.0+

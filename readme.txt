@@ -1,7 +1,7 @@
 === Simple Image Widget ===
 Contributors: cedaro, bradyvercher
 Tags: image widget, widget, media, media manager, sidebar, image, photo, picture
-Requires at least: 4.0
+Requires at least: 4.3
 Tested up to: 4.5
 Stable tag: trunk
 License: GPL-2.0+
@@ -67,6 +67,11 @@ The widget uses the core function `wp_get_attachment_image()` to display the ima
 2. The widget after selecting an image.
 
 == Changelog ==
+
+= 4.4.0 =
+* Enabled selective refresh in the Customizer.
+* Removed PO and MO files in favor of WordPress.org Language Packs.
+* Prevented errors if the main plugin file is accessed directly.
 
 = 4.3.0 =
 * Transferred to [Cedaro](http://www.cedaro.com/).
