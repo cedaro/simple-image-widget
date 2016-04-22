@@ -18,19 +18,6 @@ module.exports = function( grunt ) {
 			]
 		},
 
-		makepot: {
-			plugin: {
-				options: {
-					mainFile: 'simple-image-widget.php',
-					potHeaders: {
-						poedit: true
-					},
-					type: 'wp-plugin',
-					updateTimestamp: false
-				}
-			}
-		},
-
 		watch: {
 			js: {
 				files: ['<%= jshint.plugin %>'],
