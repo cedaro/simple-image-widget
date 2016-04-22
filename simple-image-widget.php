@@ -19,6 +19,11 @@
  * Text Domain: simple-image-widget
  */
 
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Main plugin instance.
  *
