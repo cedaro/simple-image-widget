@@ -295,7 +295,7 @@ class Simple_Image_Widget_Plugin {
 		);
 
 		foreach ( $posts as $post ) {
-			$title     = trim( $post->post_title ) ? $post->post_title : __( '(no title)' );
+			$title     = trim( $post->post_title ) ? $post->post_title : __( '(no title)', 'simple-image-widget' );
 			$post_link = 'attachment' == get_post_type( $post->ID ) ? wp_get_attachment_url( $post->ID ) : get_permalink( $post->ID );
 			$status    = '';
 
@@ -319,7 +319,7 @@ class Simple_Image_Widget_Plugin {
 				$time = '';
 			} else {
 				/* translators: date format in table columns, see http://php.net/date */
-				$time = mysql2date( __( 'Y/m/d' ), $post->post_date );
+				$time = mysql2date( __( 'Y/m/d', 'simple-image-widget' ), $post->post_date );
 			}
 
 			$post_type_label = get_post_type_object( $post->post_type )->labels->singular_name;
