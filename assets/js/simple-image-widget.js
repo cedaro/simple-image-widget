@@ -1,4 +1,4 @@
-/*global _:false, ajaxurl:false, Backbone:false, wp:false */
+/*global _:false, ajaxurl:false, Backbone:false, jQuery:false, wp:false */
 
 window.SimpleImageWidget = window.SimpleImageWidget || {};
 
@@ -18,7 +18,7 @@ window.SimpleImageWidget = window.SimpleImageWidget || {};
 	 * Control module object.
 	 */
 	Control = function( el, options ) {
-		var defaults, selector, settings;
+		var defaults, selector;
 
 		this.$el = $( el );
 
@@ -159,7 +159,7 @@ window.SimpleImageWidget = window.SimpleImageWidget || {};
 			}
 
 			if ( ! options ) {
-				name = l10n.imageSizeNames['full'] || l10n.fullSizeLabel;
+				name = l10n.imageSizeNames.full || l10n.fullSizeLabel;
 				options = '<option value="full">' + name + '</option>';
 			}
 
