@@ -19,8 +19,10 @@
   "homepage": "https://github.com/cedaro/simple-image-widget",
   "devDependencies": {
     "grunt": "^1.0.1",
+    "grunt-contrib-compress": "^1.2.0",
     "grunt-contrib-jshint": "^1.0.0",
-    "grunt-contrib-watch": "^1.0.0",
-    "matchdep": "^1.0.1"
+    "grunt-text-replace": "^0.4.0",
+    "load-grunt-config": "^0.19.2",
+    "time-grunt": "^1.3.0"
   }
 }
