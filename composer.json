@@ -1,7 +1,9 @@
 {
 	"name": "cedaro/simple-image-widget",
 	"description": "A simple WordPress image widget.",
-	"keywords": ["wordpress"],
+	"keywords": [
+		"wordpress"
+	],
 	"type": "wordpress-plugin",
 	"homepage": "https://github.com/cedaro/simple-image-widget",
 	"license": "GPL-2.0+",
@@ -9,7 +11,7 @@
 		{
 			"name": "Brady Vercher",
 			"email": "brady@blazersix.com",
-			"homepage": "http://www.cedaro.com/"
+			"homepage": "https://www.cedaro.com/"
 		}
 	],
 	"support": {

@@ -1,16 +1,13 @@
 {
   "name": "simple-image-widget",
-  "version": "4.4.0",
+  "version": "4.4.1",
   "description": "A simple WordPress image widget.",
   "main": "Gruntfile.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/cedaro/simple-image-widget.git"
-  },
+  "repository": "cedaro/simple-image-widget",
   "author": {
     "name": "Brady Vercher",
     "email": "brady@blazersix.com",
-    "url": "http://www.cedaro.com/"
+    "url": "https://www.cedaro.com/"
   },
   "license": "GPL-2.0+",
   "bugs": {
