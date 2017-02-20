@@ -87,6 +87,9 @@ class Simple_Image_Widget extends WP_Widget {
 		$instance['text']      = apply_filters( 'widget_text', $instance['text_raw'], $instance, $this->id_base );
 		$instance['title']     = apply_filters( 'widget_title', $instance['title_raw'], $instance, $this->id_base );
 
+		//pick link text or title to create ALT/TITLE attribute
+		$instance['link_alt'] = wp_strip_all_tags( empty( $instance['link_text'] ) ? $instance['title_raw'] : $instance['link_text'] );
+		
 		// Start building the output.
 		$output = '';
 
@@ -107,7 +110,7 @@ class Simple_Image_Widget extends WP_Widget {
 			if ( ! empty ( $instance['link'] ) ) {
 				$target = ( empty( $instance['new_window'] ) ) ? '' : ' target="_blank"';
 
-				$instance['link_open']  = '<a href="' . esc_url( $instance['link'] ) . '"' . $target . '>';
+				$instance['link_open']  = '<a title="' . $instance['link_alt'] . '" alt="' . $instance['link_alt'] . '" href="' . esc_url( $instance['link'] ) . '"' . $target . '>';
 				$instance['link_close'] = '</a>';
 
 				// This is to differentiate between the image link and text link.
@@ -117,10 +120,11 @@ class Simple_Image_Widget extends WP_Widget {
 				// The link classes should only be added to the text link.
 				if ( ! empty( $instance['link_classes'] ) ) {
 					$instance['text_link_open'] = sprintf(
-						'<a href="%1$s" class="%3$s"%2$s>',
+						'<a title="%4$s"  title="%4$s"  href="%1$s" class="%3$s"%2$s>',
 						esc_url( $instance['link'] ),
 						$target,
-						esc_attr( $instance['link_classes'] )
+						esc_attr( $instance['link_classes'],
+						$instance['link_alt'] )
 					);
 				}
 			}
