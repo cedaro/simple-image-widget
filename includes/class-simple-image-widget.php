@@ -574,3 +574,31 @@ class Simple_Image_Widget extends WP_Widget {
 	 */
 	public function flush_widget_cache() {}
 }
+
+class Simple_Image_Widget_Siteorigin_Panels{
+
+	private static $widgets_count = 0;
+
+	public static function get_new_widget_object($the_widget, $widget){
+
+		if($widget === 'Simple_Image_Widget'){
+
+			$new_widget = new Simple_Image_Widget();
+			$new_widget->_register();
+
+			if(self::$widgets_count == 0){
+				self::$widgets_count = ++$new_widget->number;
+			}else{
+				$new_widget->number = ++self::$widgets_count;
+			}
+
+			$new_widget->id = $new_widget->id_base . '-' . $new_widget->number;
+
+			return $new_widget;
+		}
+
+		return $the_widget;
+	}
+}
+add_filter('siteorigin_panels_widget_object', 'Simple_Image_Widget_Siteorigin_Panels::get_new_widget_object', 10, 2);
+
