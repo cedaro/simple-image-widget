@@ -40,7 +40,7 @@ class Simple_Image_Widget extends WP_Widget {
 	 */
 	public function __construct( $id_base = false, $name = false, $widget_options = array(), $control_options = array() ) {
 		$id_base = ( $id_base ) ? $id_base : 'simpleimage'; // Legacy ID.
-		$name    = ( $name ) ? $name : __( 'Image', 'simple-image-widget' );
+		$name    = ( $name ) ? $name : __( 'Image (Simple)', 'simple-image-widget' );
 
 		$widget_options = wp_parse_args(
 			$widget_options,
