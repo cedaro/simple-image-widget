@@ -2,9 +2,9 @@
 
 Contributors: cedaro, bradyvercher  
 Tags: image widget, widget, media, media manager, sidebar, image, photo, picture  
-Requires at least: 4.4  
-Tested up to: 4.6  
-Stable tag: 4.4.1  
+Requires at least: 4.6  
+Tested up to: 4.9  
+Stable tag: 4.4.2  
 License: GPL-2.0+  
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,7 +21,7 @@ Despite its simplicity, Simple Image Widget is built with extensibility in mind,
 * [Write a review](https://wordpress.org/support/view/plugin-reviews/simple-image-widget#postform)
 * [Contribute on GitHub](https://github.com/cedaro/simple-image-widget)
 * [Follow @cedaroco](https://twitter.com/cedaroco)
-* [Visit Cedaro](http://www.cedaro.com/?utm_source=wordpress.org&utm_medium=link&utm_content=simple-image-widget-readme&utm_campaign=plugins)
+* [Visit Cedaro](https://www.cedaro.com/?utm_source=wordpress.org&utm_medium=link&utm_content=simple-image-widget-readme&utm_campaign=plugins)
 
 
 ## Installation
@@ -72,6 +72,9 @@ The widget uses the core function `wp_get_attachment_image()` to display the ima
 
 
 ## Changelog
+
+### 4.4.2 - October 12, 2017
+* Changed the widget name to "Image (Simple)" to differentiate it from the core image widget introduced in WordPress 4.8.
 
 ### 4.4.1 - September 6, 2016
 * Added missing text domains.

@@ -9,12 +9,12 @@
  *
  * @wordpress-plugin
  * Plugin Name: Simple Image Widget
- * Plugin URI: https://wordpress.org/plugins/simple-image-widget/
+ * Plugin URI:  https://wordpress.org/plugins/simple-image-widget/
  * Description: A simple image widget utilizing the new WordPress media manager.
- * Version: 4.4.1
- * Author: Cedaro
- * Author URI: https://www.cedaro.com/?utm_source=wordpress-plugin&utm_medium=link&utm_content=simple-image-widget-author-uri&utm_campaign=plugins
- * License: GPL-2.0+
+ * Version:     4.4.2
+ * Author:      Cedaro
+ * Author URI:  https://www.cedaro.com/?utm_source=wordpress-plugin&utm_medium=link&utm_content=simple-image-widget-author-uri&utm_campaign=plugins
+ * License:     GPL-2.0+
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: simple-image-widget
  */
