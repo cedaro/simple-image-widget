@@ -16,7 +16,7 @@ class Test_Simple_Image_Widget_Legacy extends WP_UnitTestCase {
 	 */
 	public function setUp() {
 		global $simple_image_widget;
-		
+
 		add_filter( 'is_simple_image_widget_legacy', '__return_true' );
 
 		parent::setUp();
@@ -44,7 +44,7 @@ class Test_Simple_Image_Widget_Legacy extends WP_UnitTestCase {
 
 		parent::tearDown();
 	}
-	
+
 		/**
 	 *
 	 */
@@ -55,14 +55,14 @@ class Test_Simple_Image_Widget_Legacy extends WP_UnitTestCase {
 		$id = $this->make_attachment( $upload );
 
 		$expected = <<<HTML
-<aside id="%1\$s" class="widget %2\$s"><img src="{{image_url}}" alt=""></aside>
+<aside class="widget widget_simpleimage"><img src="{{image_url}}" alt=""></aside>
 HTML;
 
 		$upload = wp_upload_dir();
 		$expected = str_replace( '{{image_url}}', wp_get_attachment_url( $id ), $expected );
 
 		$args = array(
-			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'before_widget' => '<aside class="widget %s">',
 			'after_widget'  => '</aside>',
 			'before_title'  => '<h1 class="widget-title">',
 			'after_title'   => '</h1>',
@@ -128,7 +128,7 @@ HTML;
 		global $wp_widget_factory;
 
 		$widget = $wp_widget_factory->widgets['Simple_Image_Widget'];
-		
+
 		$fields = (array) apply_filters( 'simple_image_widget_fields', $widget->form_fields(), $widget->id_base );
 		$this->assertEquals( 'legacy', $fields[0] );
 		$this->assertFalse( array_search( 'image_size', $fields ) );

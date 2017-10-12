@@ -58,7 +58,7 @@ class Test_Simple_Image_Widget extends WP_UnitTestCase {
 		$id = $this->make_attachment( $upload );
 
 		$expected = <<<HTML
-<aside id="%1\$s" class="widget %2\$s">
+<aside class="widget widget_simpleimage">
 
 	<p class="simple-image">
 		{{image}}	</p>
@@ -70,7 +70,7 @@ HTML;
 		$expected = str_replace( '{{image}}', wp_get_attachment_image( $id, 'thumbnail' ), $expected );
 
 		$args = array(
-			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'before_widget' => '<aside class="widget %s">',
 			'after_widget'  => '</aside>',
 			'before_title'  => '<h1 class="widget-title">',
 			'after_title'   => '</h1>',
@@ -95,7 +95,7 @@ HTML;
 
 	public function test_widget_output_without_image() {
 		$expected = <<<HTML
-<aside id="%1\$s" class="widget %2\$s">
+<aside class="widget widget_simpleimage">
 
 
 
@@ -103,7 +103,7 @@ HTML;
 HTML;
 
 		$args = array(
-			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'before_widget' => '<aside class="widget %s">',
 			'after_widget'  => '</aside>',
 			'before_title'  => '<h1 class="widget-title">',
 			'after_title'   => '</h1>',
