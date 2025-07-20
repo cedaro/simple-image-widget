@@ -1,7 +1,7 @@
 # Simple Image Widget
 
 Contributors: cedaro, bradyvercher
-Tags: image widget, widget, media, media manager, sidebar, image, photo, picture
+Tags: image widget, widget, media, photo
 Requires at least: 4.9
 Tested up to: 6.8
 Stable tag: 4.4.2
